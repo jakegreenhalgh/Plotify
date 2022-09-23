@@ -1,6 +1,7 @@
 import React from "react"
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps"
 import { useState, useEffect } from "react";
+import Top10 from "./Top10";
 
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
@@ -22,7 +23,7 @@ function MapChart() {
             }
         })
             .then(res => res.json())
-            .then(top10 => setPlaylist(top10.tracks.items))
+            .then(top10 => setPlaylist(top10.tracks.items.slice(0, 10)))
     }, [])
 
 
@@ -60,6 +61,12 @@ function MapChart() {
       </Geographies>
     </ComposableMap>
     <div>{clickedCountry}</div>
+    {clickedCountry ? 
+    <Top10 playlist={playlist}/>
+    :
+    null
+    }
+    
     </>
   )
 }
