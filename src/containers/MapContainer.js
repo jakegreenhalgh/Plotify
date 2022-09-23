@@ -1,6 +1,6 @@
 import './App.css';
 
-import MapChart from './MapChart';
+import MapChart from '../mapcomponents/MapChart';
 
 function MapContainer (){
 

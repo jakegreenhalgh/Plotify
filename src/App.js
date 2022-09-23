@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import MapContainer from './MapContainter';
+import MapContainer from './containers/MapContainer';
 
 
 function App() {
