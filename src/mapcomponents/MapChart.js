@@ -12,10 +12,10 @@ function MapChart() {
   const [playlist, setPlaylist] = useState([]);
 
   const playlistId = '37i9dQZEVXbKM896FDX8L1'
-  const accessToken = 'BQBAtck9nbr0sDBTc6HJd1Wkrs3YOJfqiOkBdlIW6YcP_nwZdeJjEAKN0Qi-rkgn91NUJZSOCPAeyF-scMvCLE5aa1v2hEwzqceE7KVxOt8UFN230to7W9qfyc-iZZ-fbbT7cmNxq3Vqvt_MdfFcvYUZVMJ9OkB9lJMpWBoQWTrZaNg'
+  const accessToken = 'BQCKf8kEpt7KpkCulFv7qYP_Dc53JSfGymEnmhUGalWHgPh5-RC-F34-3i_t50HZbT48KwtBBvn_dOxGM-Hw3DX4UGNQWMBoyUX_OMc3qK9eQCBrWx6EHJSxRYIZTo2swoVBd8A1jEAbV2YF8nt_GqKA-z0a0FO45iirEFRJW6SrvWc'
 
     useEffect (() => {
-      fetch('https://api.spotify.com/v1/playlists/37i9dQZEVXbKM896FDX8L1', {
+      fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
