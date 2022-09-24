@@ -12,7 +12,7 @@ const Top10 = ({playlist}) => {
             key={i}
             rank={i+1} 
             songName={songObj.track.name} 
-            songArtists={songObj.track.artists[0]}
+            songArtists={songObj.track.artists}
             />
         )
     })

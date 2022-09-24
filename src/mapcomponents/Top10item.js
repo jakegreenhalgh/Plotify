@@ -1,19 +1,12 @@
 import React from 'react'
 
 const Top10Item = ({rank, songName, songArtists}) => {
-    // const artists = songArtists((songArtists)=>{
-    //     let artistList = ""
-    //     for (let index = 0; index < songArtists.length; index++) {
-    //         const element = songArtists[index];
-    //         artistList += element.name
-    //     }
-    // })
-
-    
     return(
     <div>
-        {rank} | {songName} | {songArtists.name}
+        {rank} | {songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}{songArtists[2]?", "+songArtists[2].name:null}
     </div>
     )
 }
 export default Top10Item
+
+
