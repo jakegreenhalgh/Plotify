@@ -7,7 +7,7 @@ import countryPlaylistId from "../CountryPlaylist";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-function MapChart() {
+function MapChart(token) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);

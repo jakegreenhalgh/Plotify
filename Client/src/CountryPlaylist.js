@@ -1,9 +1,7 @@
 
 const countryPlaylistId = 
 
-{"AD" : "Andorra",
-
-
+{"AD" : null,
 
 
 "AE" : "37i9dQZEVXbM4UZuIrvHvA",
@@ -12,109 +10,109 @@ const countryPlaylistId =
 "AF" : "1m7Ov4UeE0XYD2P82Qnt8B",
 
 
-"AG" : "Antigua and Barbuda",
+"AG" : null,
 
 
-"AI" : "Anguilla",
+"AI" : null,
 
 
-"AL" : "Albania",
+"AL" : null,
 
 
-"AM" : "Armenia",
+"AM" : null,
 
 
-"AO" : "Angola",
+"AO" : null,
 
 
-"AQ" : "Antarctica",
+"AQ" : null,
 
 
 "AR" : "37i9dQZEVXbMMy2roB9myp",
 
 
-"AS" : "American Samoa",
+"AS" : null,
 
 
-"AT" : "Austria",
+"AT" : "37i9dQZEVXbKMzVsSGQ49S",
 
 
 "AU" : "37i9dQZEVXbJPcfkRz0wJ0",
 
 
-"AW" : "Aruba",
+"AW" : null,
 
 
-"AX" : "Åland Islands",
+"AX" : null,
 
 
-"AZ" : "Azerbaijan",
+"AZ" : null,
 
 
 //B
 
 
-"BA" : "Bosnia and Herzegovina",
+"BA" : null,
 
 
-"BB" : "Barbados",
+"BB" : null,
 
 
-"BD" : "Bangladesh",
+"BD" : null,
 
 
 "BE" : "37i9dQZEVXbJNSeeHswcKB",
 
 
-"BF" : "Burkina Faso",
+"BF" : null,
 
 
-"BG" : "Bulgaria",
+"BG" : "37i9dQZEVXbNfM2w2mq1B8",
 
 
-"BH" : "Bahrain",
+"BH" : null,
 
 
-"BI" : "Burundi",
+"BI" : null,
 
 
-"BJ" : "Benin",
+"BJ" : null,
 
 
-"BL" : "Saint Barthélemy",
+"BL" : null,
 
 
-"BM" : "Bermuda",
+"BM" : null,
 
 
-"BN" : "Brunei Darussalam",
+"BN" : null,
 
 
-"BO" : "Bolivia : Plurinational State of",
+"BO" : "37i9dQZEVXbJqfMFK4d691",
 
 
-"BQ" : "Bonaire : Sint Eustatius and Saba",
+"BQ" : null,
 
 
 "BR" : "37i9dQZEVXbMXbN3EUUhlg",
 
 
-"BS" : "Bahamas",
+"BS" : null,
 
 
-"BT" : "Bhutan",
+"BT" : null,
 
 
-"BV" : "Bouvet Island",
+"BV" : null,
 
 
-"BW" : "Botswana",
+"BW" : null,
 
 
-"BY" : "Belarus",
+"BY" : "37i9dQZEVXbIYfjSLbWr4V",
 
 
-"BZ" : "Belize",
+"BZ" : null,
 
 
 //C
@@ -123,31 +121,31 @@ const countryPlaylistId =
 "CA" : "37i9dQZEVXbKj23U1GF4IR",
 
 
-"CC" : "Cocos (Keeling) Islands",
+"CC" : null,
 
 
-"CD" : "Congo : the Democratic Republic of",
+"CD" : null,
 
 
-"CF" : "Central African Republic",
+"CF" : null,
 
 
-"CG" : "Congo",
+"CG" : null,
 
 
 "CH" : "37i9dQZEVXbJiyhoAPEfMK",
 
 
-"CI" : "Côte d'Ivoire",
+"CI" : null,
 
 
-"CK" : "Cook Islands",
+"CK" : null,
 
 
-"CL" : "Chile",
+"CL" : "37i9dQZEVXbL0GavIqMTeb",
 
 
-"CM" : "Cameroon",
+"CM" : null,
 
 
 "CN" : null,
@@ -156,25 +154,25 @@ const countryPlaylistId =
 "CO" : "37i9dQZEVXbOa2lmxNORXQ",
 
 
-"CR" : "Costa Rica",
+"CR" : "37i9dQZEVXbMZAjGMynsQX",
 
 
-"CU" : "Cuba",
+"CU" : null,
 
 
-"CV" : "Cabo Verde",
+"CV" : null,
 
 
-"CW" : "Curaçao",
+"CW" : null,
 
 
-"CX" : "Christmas Island",
+"CX" : null,
 
 
-"CY" : "Cyprus",
+"CY" : null,
 
 
-"CZ" : "Czech Republic",
+"CZ" : "37i9dQZEVXbIP3c3fqVrJY",
 
 
 //D
@@ -183,43 +181,43 @@ const countryPlaylistId =
 "DE" : "37i9dQZEVXbJiZcmkrIHGU",
 
 
-"DJ" : "Djibouti",
+"DJ" : null,
 
 
 "DK" : "37i9dQZEVXbL3J0k32lWnN",
 
 
-"DM" : "Dominica",
+"DM" : null,
 
 
-"DO" : "Dominican Republic",
+"DO" : "37i9dQZEVXbKAbrMR8uuf7",
 
 
-"DZ" : "Algeria",
+"DZ" : null,
 
 
 //E
 
 
-"EC" : "Ecuador",
+"EC" : "37i9dQZEVXbJlM6nvL1nD1",
 
 
-"EE" : "Estonia",
+"EE" : "37i9dQZEVXbLesry2Qw2xS",
 
 
-"EG" : "Egypt",
+"EG" : "37i9dQZEVXbLn7RQmT5Xv2",
 
 
-"EH" : "Western Sahara",
+"EH" : null,
 
 
-"ER" : "Eritrea",
+"ER" : null,
 
 
 "ES" : "37i9dQZEVXbNFJfN1Vw8d9",
 
 
-"ET" : "Ethiopia",
+"ET" : null,
 
 
 //F
@@ -228,16 +226,15 @@ const countryPlaylistId =
 "FI" : "37i9dQZEVXbMxcczTSoGwZ",
 
 
-"FJ" : "Fiji",
+"FJ" : null,
 
 
-"FK" : "Falkland Islands (Malvinas)",
+"FK" : null,
+
+"FM" : null,
 
 
-"FM" : "Micronesia : Federated States of",
-
-
-"FO" : "Faroe Islands",
+"FO" : null,
 
 
 "FR" : "37i9dQZEVXbIPWwFssbupI",
@@ -246,25 +243,25 @@ const countryPlaylistId =
 //G
 
 
-"GA" : "Gabon",
+"GA" : null,
 
 
 "GB" : "37i9dQZEVXbLnolsZ8PSNw",
 
 
-"GD" : "Grenada",
+"GD" : null,
 
 
-"GE" : "Georgia",
+"GE" : null,
 
 
-"GF" : "French Guiana",
+"GF" : null,
 
 
-"GG" : "Guernsey",
+"GG" : null,
 
 
-"GH" : "Ghana",
+"GH" : null,
 
 
 "GI" : "Gibraltar",
@@ -291,7 +288,7 @@ const countryPlaylistId =
 "GS" : "South Georgia and the South Sandwich Islands",
 
 
-"GT" : "Guatemala",
+"GT" : "37i9dQZEVXbLy5tBFyQvd4",
 
 
 "GU" : "Guam",
@@ -312,7 +309,7 @@ const countryPlaylistId =
 "HM" : "Heard Island and McDonalds Islands",
 
 
-"HN" : "Honduras",
+"HN" : "37i9dQZEVXbJp9wcIM9Eo5",
 
 
 "HR" : "Croatia",
@@ -321,19 +318,19 @@ const countryPlaylistId =
 "HT" : "Haiti",
 
 
-"HU" : "Hungary",
+"HU" : "37i9dQZEVXbNHwMxAkvmF8",
 
 
 //I
 
 
-"ID" : "Indonesia",
+"ID" : "37i9dQZEVXbObFQZ3JLcXt",
 
 
 "IE" : "37i9dQZEVXbKM896FDX8L1",
 
 
-"IL" : "Israel",
+"IL" : "37i9dQZEVXbJ6IpvItkve3",
 
 
 "IM" : "Isle of Man",
@@ -393,28 +390,28 @@ const countryPlaylistId =
 "KN" : "Saint Kitts and Nevis",
 
 
-"KP" : "Korea : Democratic People's Republic of",
+"KP" : null,
 
 
 "KR" : "37i9dQZEVXbNxXF4SkHj9F",
 
 
-"KW" : "Kuwait",
+"KW" : null,
 
 
-"KY" : "Cayman Islands",
+"KY" : null,
 
 
-"KZ" : "Kazakhstan",
+"KZ" : "37i9dQZEVXbM472oKPNKzS",
 
 
 //L
 
 
-"LA" : "Lao People's Democratic Republic",
+"LA" : null,
 
 
-"LB" : "Lebanon",
+"LB" : null,
 
 
 "LC" : "Saint Lucia",
@@ -435,10 +432,10 @@ const countryPlaylistId =
 "LT" : "37i9dQZEVXbMx56Rdq5lwc",
 
 
-"LU" : "Luxembourg",
+"LU" : "37i9dQZEVXbKGcyg6TFGx6",
 
 
-"LV" : "Latvia",
+"LV" : "37i9dQZEVXbJWuzDrTxbKS",
 
 
 //M
@@ -507,7 +504,7 @@ const countryPlaylistId =
 "MX" : "37i9dQZEVXbO3qyFxbkOE1",
 
 
-"MY" : "Malaysia",
+"MY" : "37i9dQZEVXbJlfUljuZExa",
 
 
 "MZ" : "Mozambique",
@@ -528,13 +525,13 @@ const countryPlaylistId =
 "NF" : "Norfolk Island",
 
 
-"NG" : "Nigeria",
+"NG" : "37i9dQZEVXbKY7jLzlJ11V",
 
 
 "NI" : "Nicaragua",
 
 
-"NL" : "Netherlands",
+"NL" : "37i9dQZEVXbKCF6dqVpDkS",
 
 
 "NO" : "37i9dQZEVXbJvfa0Yxg7E7",
@@ -549,7 +546,7 @@ const countryPlaylistId =
 "NU" : "Niue",
 
 
-"NZ" : "New Zealand",
+"NZ" : "37i9dQZEVXbM8SIrkERIYl",
 
 
 //O
@@ -561,70 +558,70 @@ const countryPlaylistId =
 //P
 
 
-"PA" : "Panama",
+"PA" : "37i9dQZEVXbKypXHVwk1f0",
 
 
 "PE" : "37i9dQZEVXbJfdy5b0KP7W",
 
 
-"PF" : "French Polynesia",
+"PF" : null,
 
 
-"PG" : "Papua New Guinea",
+"PG" : null,
 
 
 "PH" : "37i9dQZEVXbNBz9cRCSFkY",
 
 
-"PK" : "Pakistan",
+"PK" : "37i9dQZEVXbJkgIdfsJyTw",
 
 
 "PL" : "37i9dQZEVXbN6itCcaL3Tt",
 
 
-"PM" : "Saint Pierre and Miquelon",
+"PM" : null,
 
 
-"PN" : "Pitcairn",
+"PN" : null,
 
 
-"PR" : "Puerto Rico",
+"PR" : null,
 
 
-"PS" : "Palestine : State of",
+"PS" : null,
 
 
 "PT" : "37i9dQZEVXbKyJS56d1pgi",
 
 
-"PW" : "Palau",
+"PW" : null,
 
 
-"PY" : "Paraguay",
+"PY" : "37i9dQZEVXbNOUPGj7tW6T",
 
 
 //Q
 
 
-"QA" : "Qatar",
+"QA" : null,
 
 
 //R
 
 
-"RE" : "Réunion",
+"RE" : null,
 
 
-"RO" : "Romania",
+"RO" : "37i9dQZEVXbNZbJ6TZelCq",
 
 
-"RS" : "Serbia",
+"RS" : null,
 
 
 "RU" : null,
 
 
-"RW" : "Rwanda",
+"RW" : null,
 
 
 //S
@@ -633,187 +630,187 @@ const countryPlaylistId =
 "SA" : "37i9dQZEVXbLrQBcXqUtaC",
 
 
-"SB" : "Solomon Islands",
+"SB" : null,
 
 
-"SC" : "Seychelles",
+"SC" : null,
 
 
-"SD" : "Sudan",
+"SD" : null,
 
 
 "SE" : "37i9dQZEVXbLoATJ81JYXz",
 
 
-"SG" : "Singapore",
+"SG" : "37i9dQZEVXbK4gjvS1FjPY",
 
 
-"SH" : "Saint Helena : Ascension and Tristan da Cunha",
+"SH" : null,
 
 
-"SI" : "Slovenia",
+"SI" : null,
 
 
-"SJ" : "Svalbard and Jan Mayen",
+"SJ" : null,
 
 
-"SK" : "Slovakia",
+"SK" : "37i9dQZEVXbMwW10JmAnzE",
 
 
-"SL" : "Sierra Leone",
+"SL" : null,
 
 
-"SM" : "San Marino",
+"SM" : null,
 
 
-"SN" : "Senegal",
+"SN" : null,
 
 
-"SO" : "Somalia",
+"SO" : null,
 
 
-"SR" : "Suriname",
+"SR" : null,
 
 
-"SS" : "South Sudan",
+"SS" : null,
 
 
-"ST" : "Sao Tome and Principe",
+"ST" : null,
 
 
-"SV" : "El Salvador",
+"SV" : "37i9dQZEVXbLxoIml4MYkT",
 
 
-"SX" : "Sint Maarten (Dutch part)",
+"SX" : null,
 
 
-"SY" : "Syrian Arab Republic",
+"SY" : null,
 
 
-"SZ" : "Swaziland",
+"SZ" : null,
 
 
 //T
 
 
-"TC" : "Turks and Caicos Islands",
+"TC" : null,
 
 
-"TD" : "Chad",
+"TD" : null,
 
 
-"TF" : "French Southern Territories",
+"TF" : null,
 
 
-"TG" : "Togo",
+"TG" : null,
 
 
-"TH" : "Thailand",
+"TH" : "37i9dQZEVXbMnz8KIWsvf9",
 
 
-"TJ" : "Tajikistan",
+"TJ" : null,
 
 
-"TK" : "Tokelau",
+"TK" : null,
 
 
-"TL" : "Timor-Leste",
+"TL" : null,
 
 
-"TM" : "Turkmenistan",
+"TM" : null,
 
 
-"TN" : "Tunisia",
+"TN" : null,
 
 
-"TO" : "Tonga",
+"TO" : null,
 
 
 "TR" : "37i9dQZEVXbIVYVBNw9D5K",
 
 
-"TT" : "Tuvalu",
+"TT" : null,
 
 
 "TW" : "37i9dQZEVXbMnZEatlMSiu",
 
 
-"TZ" : "Tanzania : United Republic of",
+"TZ" : null,
 
 
 //U
 
 
-"UA" : "Ukraine",
+"UA" : "37i9dQZEVXbKkidEfWYRuD",
 
 
-"UG" : "Uganda",
+"UG" : null,
 
 
-"UM" : "United States Minor Outlying Islands",
+"UM" : null,
 
 
 "US" : "37i9dQZEVXbLRQDuF5jeBp",
 
 
-"UY" : "Uruguay",
+"UY" : null,
 
 
-"UZ" : "Uzbekistan",
+"UZ" : null,
 
 
 //V
 
 
-"VA" : "Holy See",
+"VA" : null,
 
 
-"VC" : "Saint Vincent and the Grenadines",
+"VC" : null,
 
 
-"VE" : "Venezuela : Bolivarian Republic of",
+"VE" : "37i9dQZEVXbNvXzC8A6ysJ",
 
 
-"VG" : "Virgin Islands : British",
+"VG" : null,
 
 
-"VI" : "Virgin Islands : U.S.",
+"VI" : null,
 
 
-"VN" : "Viet Nam",
+"VN" : "37i9dQZEVXbLdGSmz6xilI",
 
 
-"VU" : "Vanuatu",
+"VU" : null,
 
 
 //W
 
 
-"WF" : "Wallis and Futuna",
+"WF" : null,
 
 
-"WS" : "Samoa",
+"WS" : null,
 
 
 //Y
 
 
-"YE" : "Yemen",
+"YE" : null,
 
 
-"YT" : "Mayotte",
+"YT" : null,
 
 
 //Z
 
 
-"ZA" : "South Africa",
+"ZA" : "37i9dQZEVXbMH2jvi6jvjk",
 
 
-"ZM" : "Zambia",
+"ZM" : null,
 
 
-"ZW" : "Zimbabwe"
+"ZW" : null
 
 
 }
