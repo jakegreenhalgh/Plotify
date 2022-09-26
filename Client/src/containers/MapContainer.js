@@ -2,10 +2,10 @@ import './App.css';
 
 import MapChart from '../mapcomponents/MapChart';
 
-function MapContainer (){
+function MapContainer (token){
 
     return (
-        <MapChart className="Map"/>
+        <MapChart className="Map" token={token}/>
     )
 }
 

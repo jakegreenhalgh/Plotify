@@ -2,19 +2,21 @@ import React from "react"
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps"
 import { useState, useEffect } from "react";
 import Top10 from "./Top10";
+import countryPlaylistId from "../CountryPlaylist";
 
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-function MapChart() {
+function MapChart(token) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
 
-  const playlistId = '37i9dQZEVXbKM896FDX8L1'
-  const accessToken = 'BQA2XEfGUurg5GTHYMwxuQlJQ_wS0h0jvwTUMxicPHJG5_olPoLgRE5X1vpuYve_PViAi0xQmvaj7P9bm5-tbvUEqX1QVyt6cwKjzAv0SC_S8O1_2RlB3IhBaUmosywrlQL-f81Vj7N-EYYL_x5IfqPpxssAqVsbNAdUHhrg207SfHM'
+  // const playlistId = '37i9dQZEVXbKM896FDX8L1'
+  const accessToken = 'BQCqGLiJXAjjbVUkhACelmhtxBA3D_fxMjAQm5116Z80a_3ZmSFJs8Ra_YxOw12KS9h0qa4g63vCAnMgq6mw_Dz-nP5PNs9wpvQ4zA7TjGlxSyMQGMLpbh_RVVoEBdtH0t3GMDeDbK-9CV9VVP2sOfgjXomC3AV8n-Vg4XFtirNLFh4'
 
     useEffect (() => {
+      const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
       fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
                 'Accept': 'application/json',
@@ -24,13 +26,16 @@ function MapChart() {
         })
             .then(res => res.json())
             .then(top10 => setPlaylist(top10.tracks.items.slice(0, 10)))
-    }, [])
+    }, [clickedCountry])
 
 
 
     const handleClick = (geo) => {
-        setClickedCountry(geo.properties.name);}
-    
+        setClickedCountry(geo.properties);
+        // console.log(clickedCountry);
+        // console.log(clickedCountry["Alpha-2"]);
+        // console.log(countryPlaylistId[clickedCountry["Alpha-2"]])
+    }
   return (
     <>
     <ComposableMap>
@@ -43,7 +48,8 @@ function MapChart() {
             onClick={() => handleClick(geo)}
             style={{
                 default: {
-                  fill: "#ffffff",
+                  // fill: "#ffffff",
+                  fill: countryPlaylistId[geo.properties["Alpha-2"]]? "#ffffff" : "#808080",
                   outline: 'none'
                 },
                 hover: {
@@ -60,7 +66,7 @@ function MapChart() {
         }
       </Geographies>
     </ComposableMap>
-    <div>{clickedCountry}</div>
+    <div>{clickedCountry.name}</div>
     {clickedCountry ? 
     <Top10 playlist={playlist}/>
     :
