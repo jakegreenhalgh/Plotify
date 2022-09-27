@@ -13,7 +13,7 @@ function MapChart(token) {
   const [playlist, setPlaylist] = useState([]);
 
   // const playlistId = '37i9dQZEVXbKM896FDX8L1'
-  const accessToken = 'BQCqGLiJXAjjbVUkhACelmhtxBA3D_fxMjAQm5116Z80a_3ZmSFJs8Ra_YxOw12KS9h0qa4g63vCAnMgq6mw_Dz-nP5PNs9wpvQ4zA7TjGlxSyMQGMLpbh_RVVoEBdtH0t3GMDeDbK-9CV9VVP2sOfgjXomC3AV8n-Vg4XFtirNLFh4'
+  const accessToken = 'BQD7Q8dV-KcaZ4rfDxdabAwJ6PoKQnuGOLI5x8q6_f7l5eO4wlR2vm-Gzs59ovGYV0ZzlRVe0WMa_KnlJBy-c5bxXRhifgPckTjrFZvrgl9IIdq4lXv58ghmWJhsGxcVWAJSdx5ci8dlwRhAoKRLM_SOYJwmgtYpPaAglJHTo3IpLc4'
 
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
