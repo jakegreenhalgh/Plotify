@@ -1,7 +1,7 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import MapContainer from './containers/MapContainer';
-
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 function App() {
   const CLIENT_ID = "b1456a8b38284b83a4818759f42a75c3"
@@ -40,6 +40,11 @@ function App() {
                   <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
                       to Spotify</a>
                   : <button onClick={logout}>Logout</button>}
+                  <Router>
+                    <Routes>
+                        <Route path="/quiz" element={<QuizContainer/>}   />
+                    </Routes>
+                  </Router>
                   <MapContainer token={token}/>
           </header>
       </div>
