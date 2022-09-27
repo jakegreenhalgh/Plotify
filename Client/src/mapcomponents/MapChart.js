@@ -7,13 +7,13 @@ import countryPlaylistId from "../CountryPlaylist";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-function MapChart(token) {
+function MapChart({token}) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
 
   // const playlistId = '37i9dQZEVXbKM896FDX8L1'
-  const accessToken = 'BQCqGLiJXAjjbVUkhACelmhtxBA3D_fxMjAQm5116Z80a_3ZmSFJs8Ra_YxOw12KS9h0qa4g63vCAnMgq6mw_Dz-nP5PNs9wpvQ4zA7TjGlxSyMQGMLpbh_RVVoEBdtH0t3GMDeDbK-9CV9VVP2sOfgjXomC3AV8n-Vg4XFtirNLFh4'
+  // const accessToken = 'BQCqGLiJXAjjbVUkhACelmhtxBA3D_fxMjAQm5116Z80a_3ZmSFJs8Ra_YxOw12KS9h0qa4g63vCAnMgq6mw_Dz-nP5PNs9wpvQ4zA7TjGlxSyMQGMLpbh_RVVoEBdtH0t3GMDeDbK-9CV9VVP2sOfgjXomC3AV8n-Vg4XFtirNLFh4'
 
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
@@ -21,7 +21,7 @@ function MapChart(token) {
             method: 'GET', headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
+                'Authorization': 'Bearer ' + token
             }
         })
             .then(res => res.json())
