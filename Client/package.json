@@ -12,7 +12,11 @@
     "react-scripts": "5.0.1",
     "react-simple-maps": "^3.0.0",
     "styled-components": "^5.3.5",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "mongodb": "^3.5.7",
+    "node-fetch": "^2.6.7"
   },
   "scripts": {
     "start": "react-scripts start",

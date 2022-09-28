@@ -12,13 +12,17 @@ function MapChart({token}) {
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
 
+  // const accessToken = 'BQBwvvbYEjsDAOSydJNHGJAwwpPaXI8Ah7-jqEDqGBI90LIsDzsoNxcRQXTuZWSLP9rrLdTxxv3wjbPm5XrAx9TH03S4QQx5VZ7xk1-5ejwTBZEg1O3YrNJ1csw6Do6iP-9CKengXyQ-XxxG_nUXoqyvG3q7XUnLSeVqiYveiwbZU00'
+  let accessToken = 'BQBizdoLB0xS67WtCcWv4OeqBNxaNv-AwaIGhenAigtp82PODjZCwrOc2BXNF7-pm3cX_wqkTr9cANiclipjHAkjS2uI0XNIL2PPtmGF_zdi369MuMIhUeLJayalWKDW50Kpdv5P5zFEApvSPIikW_1nL5uGKT-aJpjVwiDsZheT6_A'
+
+
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
       fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token
+                'Authorization': 'Bearer ' + accessToken
             }
         })
             .then(res => res.json())

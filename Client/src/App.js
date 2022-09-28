@@ -2,10 +2,12 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import MapContainer from './containers/MapContainer';
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import QuizContainer from './containers/QuizContainer';
 
 function App() {
   const CLIENT_ID = "b1456a8b38284b83a4818759f42a75c3"
-  const REDIRECT_URI = "http://localhost:3000"
+//   const CLIENT_ID = "9d1cfe0cdf784d4797707581938d0db6"
+  const REDIRECT_URI = "http://localhost:3000/auth/callback/"
   const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
   const RESPONSE_TYPE = "token"
 
