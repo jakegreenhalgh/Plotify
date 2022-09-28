@@ -13,7 +13,6 @@ const track = {
 }
 
 function WebPlayback(props) {
-
     const [is_paused, setPaused] = useState(false);
     const [is_active, setActive] = useState(false);
     const [player, setPlayer] = useState(undefined);
