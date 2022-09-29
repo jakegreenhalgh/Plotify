@@ -863,7 +863,6 @@ db.dropDatabase();
 const addAllSongs = async (countryPlaylist) => {
   timesSongInChart = {}
   timesArtistInChart = {}
-  timesArtistFeaturedInChart = {}
   for(var country in countryPlaylist) {
     if (trialCountryId[country]){
     let songsToInsert = await top10Fetch(country)
@@ -887,10 +886,10 @@ const addAllSongs = async (countryPlaylist) => {
     db.songs.insertMany(individualSongs)
   };
   }
-  
+  db.songchart.insertMany([timesSongInChart])
+  db.artistchart.insertMany([timesArtistInChart])
   console.log(timesSongInChart);
   console.log(timesArtistInChart);
-  console.log(timesArtistFeaturedInChart);
 }
 addAllSongs(trialCountryId);
 
