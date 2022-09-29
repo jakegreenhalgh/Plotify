@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQD8KHmPHb98DRmQE8FyUSnEoO9NuQZ6jnbK_ILg70Ka16KAxRfTf9ZU65VKRovZQda_Jskfd2p920rkmmWf1zlZlj34tzgqUBTiTBDiW0hDJfCpaUSdaQbc-Xy_iHZyqoO6I-igAhvHc5_ZFIco-mwZBCKNDZ_PmC8WhTJI-j2P1Ms"
+const token = "BQCiikIC1H2g7QpApvcPFntbe645TkY7l1QWRomHA5Rv7mPZrAEl2DCHbTqB-QfdHxLJoMk0f8-dFgnFBDlix4VKZnrQiHZbvs0PRQg2mE5sNRnCO7CbT2_M-ibqJIB62krrts8bmqQ3M0u_baXT3eW0Plzz2v0HVw5MkhcGKmypYbQ"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -923,8 +923,20 @@ for (var artist in sortableArtists) {
   console.log(sortedSongs);
   console.log(sortedArtists);
   var quizAnswer = sortedSongs[Math.floor(Math.random()*60)];
+  const quizSong = quizAnswerFetch(quizAnswer[0])
   console.log(quizAnswerFetch(quizAnswer[0]));
-  quizAnswerFetch
+  db.quizanswer.insertOne(quizAnswerFetch(quizAnswer[0]))
+//   const saveQuizSong = (element) => {
+//   let name = element.track.name
+//   let id = element.track.id
+//   let artistsOnSong = element.track.artists
+//   let artists = []
+//   for (let index = 0; index < artistsOnSong.length; index++) {
+//     const element = artistsOnSong[index];
+//     artists.push({"artist_id" : element.id, "name" : element.name})
+//   }
+//   db.quizAnswer.insertOne[{"country_id" : countryId, "song_id" : id, "name" : name, "artists" : artists}]
+// }
 }
 addAllSongs(trialCountryId);
 

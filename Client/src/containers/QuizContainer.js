@@ -4,6 +4,7 @@ const QuizContainer = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [quizAnswer, setQuizAnswer] = useState([])
 
     const questions = [
 		{
