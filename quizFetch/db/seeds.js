@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQDBE33ysSaefiREbgS0oyaA_u201ELis9XMJ5qBhWBAc3poeSOvQ2_YkAxSnloSCiX5cMeFhZYOVebVCj8JXMxte_wUsZY0Ng5_Y8ZwhnNKsCwMACuuF0QH5PbmUI5zs7QB6wvrjhQruRJuxzxjjt0Uobjry9dUob-EIOuKSOc7RiU"
+const token = "BQDQiND9ZqyV1gs2g7nu7ltRE4O_g7DigjYrlz9lBOErpheBxW8lUPfiygWqvpMGDaV9P4vzLaxvY4D8BT_8MECXGTsDM5huN3PoQ1M1JjQN70diLKvWA9vk-rdpuVuuBEHHh9s6797BHnKyzJfbfv_tDKwJfgt4LwQcihgm6wYNxaQ"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -826,7 +826,7 @@ const top10Fetch =  (country) => {
             }
         })
         .then(res => res.json())
-        .then(top10 => top10.tracks.items.slice(0, 2))
+        .then(top10 => top10.tracks.items.slice(0, 50))
   }
 
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
@@ -846,44 +846,68 @@ const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
 return songs
 }
 
+// const sortObject = (object) => {
+//   let sortable = [];
+// for (var value in object) {
+//     sortable.push([value, object[value]]);
+// }
 
+// sortable.sort(function(a, b) {
+//     return a[1] - b[1];
+// });
+// }
 
 
 use plotify
 db.dropDatabase();
 const addAllSongs = async (countryPlaylist) => {
   timesSongInChart = {}
+  timesArtistInChart = {}
+  timesArtistFeaturedInChart = {}
   for(var country in countryPlaylist) {
     if (trialCountryId[country]){
     let songsToInsert = await top10Fetch(country)
     let individualSongs = getIndividualSongsFromFetch(country, songsToInsert)
     for (let index = 0; index < individualSongs.length; index++) {
       const element = individualSongs[index];
-      if (Object.keys(timesSongInChart).includes(element.song_id)){
+      if (Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesArtistInChart).includes(element.artists[0].artist_id)){
       timesSongInChart[element.song_id] += 1
+      timesArtistInChart[element.artists[0].artist_id] += 1
+    } else if (!Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesArtistInChart).includes(element.artists[0].artist_id)){
+      timesSongInChart[element.song_id] = 1
+      timesArtistInChart[element.artists[0].artist_id] += 1
+    } else if (Object.keys(timesSongInChart).includes(element.song_id) && !Object.keys(timesArtistInChart).includes(element.artists[0].artist_id)){
+      timesSongInChart[element.song_id] += 1
+      timesArtistInChart[element.artists[0].artist_id] = 1
     } else {
       timesSongInChart[element.song_id] = 1
+      timesArtistInChart[element.artists[0].artist_id] = 1
     }
-    }
+  }
     db.songs.insertMany(individualSongs)
   };
   }
+  
   console.log(timesSongInChart);
+  console.log(timesArtistInChart);
+  console.log(timesArtistFeaturedInChart);
 }
 addAllSongs(trialCountryId);
 
-    // for (let index = 0; index < individualSongs.length; index++) {
-    //   const element = individualSongs[index];
-    //   console.log(element.artists[0].artist_id);
-    //   if (Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
-    //   timesSongInChart[element.name] += 1
-    //   timesSongInChart[element.artist[0].artist_id] += 1
-    // } else if (!Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
-    //   timesSongInChart[element.name] = 1
-    //   timesSongInChart[element.artist[0].artist_id] += 1
-    // } else if (Object.keys(timesSongInChart).includes(element.song_id) && !Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
-    //   timesSongInChart[element.name] += 1
-    //   timesSongInChart[element.artist[0].artist_id] = 1
-    // } else {
-    //   timesSongInChart[element.name] = 1
-    //   timesSongInChart[element.artist[0].artist_id] = 1
+  //   for (let index = 0; index < individualSongs.length; index++) {
+  //     const element = individualSongs[index];
+  //     console.log(element.artists[0].artist_id);
+  //     if (Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
+  //     timesSongInChart[element.name] += 1
+  //     timesSongInChart[element.artist[0].artist_id] += 1
+  //   } else if (!Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
+  //     timesSongInChart[element.name] = 1
+  //     timesSongInChart[element.artist[0].artist_id] += 1
+  //   } else if (Object.keys(timesSongInChart).includes(element.song_id) && !Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
+  //     timesSongInChart[element.name] += 1
+  //     timesSongInChart[element.artist[0].artist_id] = 1
+  //   } else {
+  //     timesSongInChart[element.name] = 1
+  //     timesSongInChart[element.artist[0].artist_id] = 1
+  //   }
+  // }
