@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQDQiND9ZqyV1gs2g7nu7ltRE4O_g7DigjYrlz9lBOErpheBxW8lUPfiygWqvpMGDaV9P4vzLaxvY4D8BT_8MECXGTsDM5huN3PoQ1M1JjQN70diLKvWA9vk-rdpuVuuBEHHh9s6797BHnKyzJfbfv_tDKwJfgt4LwQcihgm6wYNxaQ"
+const token = "BQAnZ_F-cqd_bmUzOChqVt8TT4MbU4PqRN0r6TMe_VJ7_cpR-k_s5fTJc-M33_hfUxBZC8sS3xcFc3EAnuTi6LUcAl56BzqFAf0iZRjUSo_AvPvu4KGmIraUYPiQiohc2VyovtRgg47iuTZIjqboO4xyF0QykWqGVbh7R1vqh5yv6dY"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -826,7 +826,7 @@ const top10Fetch =  (country) => {
             }
         })
         .then(res => res.json())
-        .then(top10 => top10.tracks.items.slice(0, 50))
+        .then(top10 => top10.tracks.items.slice(0, 20))
   }
 
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
@@ -845,17 +845,6 @@ const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
  }
 return songs
 }
-
-// const sortObject = (object) => {
-//   let sortable = [];
-// for (var value in object) {
-//     sortable.push([value, object[value]]);
-// }
-
-// sortable.sort(function(a, b) {
-//     return a[1] - b[1];
-// });
-// }
 
 
 use plotify
@@ -885,28 +874,28 @@ const addAllSongs = async (countryPlaylist) => {
   }
     db.songs.insertMany(individualSongs)
   };
+  }    
+  let sortableSongs = [];
+  for (var song in timesSongInChart) {
+      sortableSongs.push([song, timesSongInChart[song]]);
   }
-  db.songchart.insertMany([timesSongInChart])
-  db.artistchart.insertMany([timesArtistInChart])
+  sortableSongs.sort(function(a, b) {
+      return b[1] - a[1];
+  });
+
+  let sortableArtists = [];
+  for (var artist in timesArtistInChart) {
+    sortableArtists.push([artist, timesArtistInChart[artist]]);
+}
+sortableArtists.sort(function(a, b) {
+    return b[1] - a[1];
+});
+
+
+  db.songchart.insertMany(sortableSongs.slice(0, 100))
+  db.artistchart.insertMany(sortableArtists.slice(0, 40))
   console.log(timesSongInChart);
   console.log(timesArtistInChart);
 }
 addAllSongs(trialCountryId);
 
-  //   for (let index = 0; index < individualSongs.length; index++) {
-  //     const element = individualSongs[index];
-  //     console.log(element.artists[0].artist_id);
-  //     if (Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
-  //     timesSongInChart[element.name] += 1
-  //     timesSongInChart[element.artist[0].artist_id] += 1
-  //   } else if (!Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
-  //     timesSongInChart[element.name] = 1
-  //     timesSongInChart[element.artist[0].artist_id] += 1
-  //   } else if (Object.keys(timesSongInChart).includes(element.song_id) && !Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
-  //     timesSongInChart[element.name] += 1
-  //     timesSongInChart[element.artist[0].artist_id] = 1
-  //   } else {
-  //     timesSongInChart[element.name] = 1
-  //     timesSongInChart[element.artist[0].artist_id] = 1
-  //   }
-  // }
