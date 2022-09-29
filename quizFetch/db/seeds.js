@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQAnZ_F-cqd_bmUzOChqVt8TT4MbU4PqRN0r6TMe_VJ7_cpR-k_s5fTJc-M33_hfUxBZC8sS3xcFc3EAnuTi6LUcAl56BzqFAf0iZRjUSo_AvPvu4KGmIraUYPiQiohc2VyovtRgg47iuTZIjqboO4xyF0QykWqGVbh7R1vqh5yv6dY"
+const token = "BQD8KHmPHb98DRmQE8FyUSnEoO9NuQZ6jnbK_ILg70Ka16KAxRfTf9ZU65VKRovZQda_Jskfd2p920rkmmWf1zlZlj34tzgqUBTiTBDiW0hDJfCpaUSdaQbc-Xy_iHZyqoO6I-igAhvHc5_ZFIco-mwZBCKNDZ_PmC8WhTJI-j2P1Ms"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -826,8 +826,20 @@ const top10Fetch =  (country) => {
             }
         })
         .then(res => res.json())
-        .then(top10 => top10.tracks.items.slice(0, 20))
+        .then(top10 => top10.tracks.items.slice(0, 50))
   }
+
+  const quizAnswerFetch =  (id) => {
+    return fetch(`https://api.spotify.com/v1/tracks/${id}`, {
+        method: 'GET', headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(res => res.json())
+    // .then(top10 => top10.tracks.items.slice(0, 50))
+}
 
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
   let songs =[] 
@@ -875,27 +887,46 @@ const addAllSongs = async (countryPlaylist) => {
     db.songs.insertMany(individualSongs)
   };
   }    
-  let sortableSongs = [];
-  for (var song in timesSongInChart) {
-      sortableSongs.push([song, timesSongInChart[song]]);
-  }
-  sortableSongs.sort(function(a, b) {
-      return b[1] - a[1];
-  });
+  // let sortableSongs = [];
+  // for (var song in timesSongInChart) {
+  //     sortableSongs.push([song, timesSongInChart[song]]);
+  // }
+  // sortableSongs.sort(function(a, b) {
+  //     return b[1] - a[1];
+  // });
 
-  let sortableArtists = [];
-  for (var artist in timesArtistInChart) {
-    sortableArtists.push([artist, timesArtistInChart[artist]]);
+//   let sortableArtists = [];
+//   for (var artist in timesArtistInChart) {
+//     sortableArtists.push([artist, timesArtistInChart[artist]]);
+// }
+// sortableArtists.sort(function(a, b) {
+//     return b[1] - a[1];
+// });
+const sortableSongs = Object.entries(timesSongInChart)
+.sort(([,a],[,b]) => b-a)
+.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+const sortedSongs = [];
+for (var song in sortableSongs) {
+  sortedSongs.push([song, sortableSongs[song]]);
 }
-sortableArtists.sort(function(a, b) {
-    return b[1] - a[1];
-});
 
+const sortableArtists = Object.entries(timesArtistInChart)
+.sort(([,a],[,b]) => b-a)
+.reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+const sortedArtists = [];
+for (var artist in sortableArtists) {
+  sortedArtists.push([artist, sortableArtists[artist]]);
+}
 
-  db.songchart.insertMany(sortableSongs.slice(0, 100))
-  db.artistchart.insertMany(sortableArtists.slice(0, 40))
-  console.log(timesSongInChart);
-  console.log(timesArtistInChart);
+  db.songchart.insertMany(sortedSongs.slice(0, 60))
+  db.artistchart.insertMany(sortedArtists.slice(0, 60))
+  console.log(sortedSongs);
+  console.log(sortedArtists);
+  var quizAnswer = sortedSongs[Math.floor(Math.random()*60)];
+  console.log(quizAnswerFetch(quizAnswer[0]));
+  quizAnswerFetch
 }
 addAllSongs(trialCountryId);
+
+
 
