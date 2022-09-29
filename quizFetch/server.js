@@ -16,8 +16,6 @@ MongoClient.connect('mongodb://127.0.0.1:27017', { useUnifiedTopology: true })
     const songsCollection = db.collection('songs');
 
     const songsRouter = createRouter(songsCollection);
-
-    
     
     app.use('/api/songs', songsRouter);
   })

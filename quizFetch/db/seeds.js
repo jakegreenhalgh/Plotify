@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQC_WuQ92u6UjsqzDY1h1cdr-nu7xpqlSkF5cFBZ3oUcsSI3_wYLNvqdctOqx0XJzob-V3K3rmwQJH9lYChAJeQX9PXWiEjxW_Nddupvg29HsBhlmGJrK2UTUnr_bz_GNx1jrHAkRy1mTNr_n3AxvPVXoBYfK3mYjjS0tjITlW_bRaQ"
+const token = "BQCfzRAsex0uX3PGFOd98zQq1WWZ8XR6glnt9uyHLqMtsg_XOPRUwUdpyXQuBK8Z6BrpIE6ZcWc2LRIyCSk-Wz-ajgDP8HltfWmUr6e_0D0CisHThBt2SrLELI9xUlZASzi7Us8ZCgkcAYtQPPBlovX4UhCNoWIalrMICX_abRojbyA"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -850,10 +850,19 @@ return songs
 use plotify
 db.dropDatabase();
 const addAllSongs = async (countryPlaylist) => {
+  number1Songs = {}
   for(var country in countryPlaylist) {
     if (trialCountryId[country]){
     let songsToInsert = await top10Fetch(country)
-    db.songs.insertMany(getIndividualSongsFromFetch(country, songsToInsert))
+    let individualSongs = getIndividualSongsFromFetch(country, songsToInsert)
+    for (let index = 0; index < individualSongs.length; index++) {
+      const element = individualSongs[index];
+      if (Object.keys(number1Songs).includes(element.song_id))
+      
+      
+    }
+    individualSongs
+    db.songs.insertMany(individualSongs)
   };
   }
 }
