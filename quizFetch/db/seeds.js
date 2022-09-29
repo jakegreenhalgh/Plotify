@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQCfzRAsex0uX3PGFOd98zQq1WWZ8XR6glnt9uyHLqMtsg_XOPRUwUdpyXQuBK8Z6BrpIE6ZcWc2LRIyCSk-Wz-ajgDP8HltfWmUr6e_0D0CisHThBt2SrLELI9xUlZASzi7Us8ZCgkcAYtQPPBlovX4UhCNoWIalrMICX_abRojbyA"
+const token = "BQDBE33ysSaefiREbgS0oyaA_u201ELis9XMJ5qBhWBAc3poeSOvQ2_YkAxSnloSCiX5cMeFhZYOVebVCj8JXMxte_wUsZY0Ng5_Y8ZwhnNKsCwMACuuF0QH5PbmUI5zs7QB6wvrjhQruRJuxzxjjt0Uobjry9dUob-EIOuKSOc7RiU"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -826,7 +826,7 @@ const top10Fetch =  (country) => {
             }
         })
         .then(res => res.json())
-        .then(top10 => top10.tracks.items.slice(0, 1))
+        .then(top10 => top10.tracks.items.slice(0, 2))
   }
 
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
@@ -847,25 +847,43 @@ return songs
 }
 
 
+
+
 use plotify
 db.dropDatabase();
 const addAllSongs = async (countryPlaylist) => {
-  number1Songs = {}
+  timesSongInChart = {}
   for(var country in countryPlaylist) {
     if (trialCountryId[country]){
     let songsToInsert = await top10Fetch(country)
     let individualSongs = getIndividualSongsFromFetch(country, songsToInsert)
     for (let index = 0; index < individualSongs.length; index++) {
       const element = individualSongs[index];
-      if (Object.keys(number1Songs).includes(element.song_id)){
-      number1Songs[element.song_id] += 1
+      if (Object.keys(timesSongInChart).includes(element.song_id)){
+      timesSongInChart[element.song_id] += 1
     } else {
-      number1Songs[element.song_id] = 1
+      timesSongInChart[element.song_id] = 1
     }
     }
     db.songs.insertMany(individualSongs)
   };
   }
-  console.log(number1Songs);
+  console.log(timesSongInChart);
 }
 addAllSongs(trialCountryId);
+
+    // for (let index = 0; index < individualSongs.length; index++) {
+    //   const element = individualSongs[index];
+    //   console.log(element.artists[0].artist_id);
+    //   if (Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
+    //   timesSongInChart[element.name] += 1
+    //   timesSongInChart[element.artist[0].artist_id] += 1
+    // } else if (!Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
+    //   timesSongInChart[element.name] = 1
+    //   timesSongInChart[element.artist[0].artist_id] += 1
+    // } else if (Object.keys(timesSongInChart).includes(element.song_id) && !Object.keys(timesSongInChart).includes(element.artist[0].artist_id)){
+    //   timesSongInChart[element.name] += 1
+    //   timesSongInChart[element.artist[0].artist_id] = 1
+    // } else {
+    //   timesSongInChart[element.name] = 1
+    //   timesSongInChart[element.artist[0].artist_id] = 1
