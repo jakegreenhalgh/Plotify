@@ -826,7 +826,7 @@ const top10Fetch =  (country) => {
             }
         })
         .then(res => res.json())
-        .then(top10 => top10.tracks.items.slice(0, 2))
+        .then(top10 => top10.tracks.items.slice(0, 1))
   }
 
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
@@ -857,13 +857,15 @@ const addAllSongs = async (countryPlaylist) => {
     let individualSongs = getIndividualSongsFromFetch(country, songsToInsert)
     for (let index = 0; index < individualSongs.length; index++) {
       const element = individualSongs[index];
-      if (Object.keys(number1Songs).includes(element.song_id))
-      
-      
+      if (Object.keys(number1Songs).includes(element.song_id)){
+      number1Songs[element.song_id] += 1
+    } else {
+      number1Songs[element.song_id] = 1
     }
-    individualSongs
+    }
     db.songs.insertMany(individualSongs)
   };
   }
+  console.log(number1Songs);
 }
 addAllSongs(trialCountryId);
