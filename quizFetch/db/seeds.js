@@ -1,4 +1,3 @@
-const Db = require('mongodb/lib/db')
 const fetch = require('node-fetch')
 
 const trialCountryId = {
@@ -815,11 +814,11 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQB4HaxmEIa7dsRj01cerx0zDNXg4sGiOnZ0r6wjsP76WOhzClb8HhhqKzJtYB-NWXcKVq4pRMf1WOprVkcS2TqdQuSAjFX0dXF8T7qU8YLXUOg_F4WbvePfbvR-OhQqYUMeCYZwFKpmwMaAu2FWFqPUhTouj1TcFWUCMEJOKPC9XYg"
-const top10Fetch =  () => {
-        // const playlistId = countryPlaylistId[country]
-        return fetch(`https://api.spotify.com/v1/playlists/37i9dQZEVXbMH2jvi6jvjk`, {
-        // return fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+const token = "BQC_WuQ92u6UjsqzDY1h1cdr-nu7xpqlSkF5cFBZ3oUcsSI3_wYLNvqdctOqx0XJzob-V3K3rmwQJH9lYChAJeQX9PXWiEjxW_Nddupvg29HsBhlmGJrK2UTUnr_bz_GNx1jrHAkRy1mTNr_n3AxvPVXoBYfK3mYjjS0tjITlW_bRaQ"
+const top10Fetch =  (country) => {
+        const playlistId = trialCountryId[country]
+        console.log(country);
+        return fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
@@ -827,7 +826,7 @@ const top10Fetch =  () => {
             }
         })
         .then(res => res.json())
-        .then(top10 => top10.tracks.items.slice(0, 50))
+        .then(top10 => top10.tracks.items.slice(0, 2))
   }
 
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
@@ -840,9 +839,9 @@ const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
   let artists = []
   for (let index = 0; index < artistsOnSong.length; index++) {
     const element = artistsOnSong[index];
-    artists.push({"id" : element.id, "name" : element.name})
+    artists.push({"artist_id" : element.id, "name" : element.name})
   }
-  songs.push({"country_id" : countryId, "id" : id, "rank" : index + 1, "name" : name, "artists" : artists})
+  songs.push({"country_id" : countryId, "song_id" : id, "rank" : index + 1, "name" : name, "artists" : artists})
  }
 return songs
 }
@@ -852,7 +851,6 @@ use plotify
 db.dropDatabase();
 const addAllSongs = async (countryPlaylist) => {
   for(var country in countryPlaylist) {
-    console.log(country);
     if (trialCountryId[country]){
     let songsToInsert = await top10Fetch(country)
     db.songs.insertMany(getIndividualSongsFromFetch(country, songsToInsert))

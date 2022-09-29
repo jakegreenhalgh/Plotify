@@ -1,5 +1,5 @@
 
-const countryPlaylistId = 
+export const countryPlaylistId = 
 
 {"AD" : null,
 
@@ -812,7 +812,7 @@ const countryPlaylistId =
 
 "ZW" : null
 }
-export default countryPlaylistId;
+
 
 
 // for (var key in countryPlaylistId) {
