@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQDxSjRAzK8yunFl8cQVifYgKdinAr11qUDv1aiPc4zPV7vjn8YChlgFUykIvCSQTuxrxE0Mv06ayqyTwpHGDQZyzARKQSOmHpdmKeejvcEe3CDGdY0A7fl78R2q-aQDC7efpd1a3onr3hHXckDIOPR11BTNsH0H-LPR8VUUuHswjzE"
+const token = "BQClhniew8VGudqxnKMnd7VCagcvnj0hD_Itcw20h5kGtffTKwAGKd0Hk7nB-oMBn3AzcZ8A5UKWFdKOR4neGZ_KKncJH9GIVU0EuvBz8_ePHWH6L0RD5W5n5E6qkEUoeCdxjjYwlxHw8mWrYTtfAcoOpAupp9OVpoWsTtr7d1HMXHA"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -920,14 +920,24 @@ for (var artist in sortableArtists) {
 
   db.songchart.insertMany(sortedSongs.slice(0, 60))
   db.artistchart.insertMany(sortedArtists.slice(0, 60))
-  console.log(sortedSongs);
-  console.log(sortedArtists);
   var quizAnswer = sortedSongs[Math.floor(Math.random()*60)];
+  console.log(quizAnswer);
+
 
   
   const quizSong = await quizAnswerFetch(quizAnswer[0])
-  console.log(quizSong);
+  // console.log(quizSong);
   db.quiz.insertOne(quizSong)
+  let wrongAnswers = [quizAnswer[0]]
+  while (wrongAnswers.length <= 7){
+    var randomSong = sortedSongs[Math.floor(Math.random()*60)]
+    let wrongAnswer = randomSong[0]
+    if (!Object.keys(wrongAnswers).includes(wrongAnswer)) {
+      wrongAnswers.push(wrongAnswer)
+    }
+  }
+  console.log(wrongAnswers);
+
 
 
 //   const saveQuizSong = (element) => {
