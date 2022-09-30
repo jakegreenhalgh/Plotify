@@ -858,7 +858,6 @@ const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
 return songs
 }
 
-
 use plotify
 db.dropDatabase();
 const addAllSongs = async (countryPlaylist) => {
@@ -928,15 +927,20 @@ for (var artist in sortableArtists) {
   const quizSong = await quizAnswerFetch(quizAnswer[0])
   // console.log(quizSong);
   db.quiz.insertOne(quizSong)
+
   let wrongAnswers = [quizAnswer[0]]
   while (wrongAnswers.length <= 7){
     var randomSong = sortedSongs[Math.floor(Math.random()*60)]
     let wrongAnswer = randomSong[0]
     if (!Object.keys(wrongAnswers).includes(wrongAnswer)) {
       wrongAnswers.push(wrongAnswer)
+      let quizSong = await quizAnswerFetch(wrongAnswer)
+      // console.log(quizSong);
+      db.quiz.insertOne(quizSong)
     }
   }
   console.log(wrongAnswers);
+  
 
 
 
