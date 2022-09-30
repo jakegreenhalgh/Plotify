@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQCiikIC1H2g7QpApvcPFntbe645TkY7l1QWRomHA5Rv7mPZrAEl2DCHbTqB-QfdHxLJoMk0f8-dFgnFBDlix4VKZnrQiHZbvs0PRQg2mE5sNRnCO7CbT2_M-ibqJIB62krrts8bmqQ3M0u_baXT3eW0Plzz2v0HVw5MkhcGKmypYbQ"
+const token = "BQDDMGfrg5U5gTwueh7EL8H8sjEIva8Vuh9ur7C41OXVCC1cSZ0U7ID_xfleQUkWs-s_41eyMHOUXYvakaMweGRu4XDDT9l6_LODF2Nt7v2AA3u2f8_HhcGlNLyZQwVP4_F4q7qsBEicsHrG9t2z6DkwtXR55JOLS7Co-IpL4HMqpDM"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -826,7 +826,7 @@ const top10Fetch =  (country) => {
             }
         })
         .then(res => res.json())
-        .then(top10 => top10.tracks.items.slice(0, 50))
+        .then(toptracks => toptracks.tracks.items.slice(0, 50))
   }
 
   const quizAnswerFetch =  (id) => {
@@ -838,7 +838,7 @@ const top10Fetch =  (country) => {
         }
     })
     .then(res => res.json())
-    // .then(top10 => top10.tracks.items.slice(0, 50))
+    .then(top10 => [top10])
 }
 
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
@@ -923,9 +923,13 @@ for (var artist in sortableArtists) {
   console.log(sortedSongs);
   console.log(sortedArtists);
   var quizAnswer = sortedSongs[Math.floor(Math.random()*60)];
-  const quizSong = quizAnswerFetch(quizAnswer[0])
-  console.log(quizAnswerFetch(quizAnswer[0]));
-  db.quizanswer.insertOne(quizAnswerFetch(quizAnswer[0]))
+
+  
+  const quizSong = await quizAnswerFetch(quizAnswer[0])
+  console.log(quizSong);
+  db.quizanswer.insertOne(quizSong)
+
+
 //   const saveQuizSong = (element) => {
 //   let name = element.track.name
 //   let id = element.track.id

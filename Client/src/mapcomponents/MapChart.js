@@ -12,7 +12,6 @@ function MapChart({token}) {
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
 
-  // const accessToken = 'BQBwvvbYEjsDAOSydJNHGJAwwpPaXI8Ah7-jqEDqGBI90LIsDzsoNxcRQXTuZWSLP9rrLdTxxv3wjbPm5XrAx9TH03S4QQx5VZ7xk1-5ejwTBZEg1O3YrNJ1csw6Do6iP-9CKengXyQ-XxxG_nUXoqyvG3q7XUnLSeVqiYveiwbZU00'
   let accessToken = 'BQCiikIC1H2g7QpApvcPFntbe645TkY7l1QWRomHA5Rv7mPZrAEl2DCHbTqB-QfdHxLJoMk0f8-dFgnFBDlix4VKZnrQiHZbvs0PRQg2mE5sNRnCO7CbT2_M-ibqJIB62krrts8bmqQ3M0u_baXT3eW0Plzz2v0HVw5MkhcGKmypYbQ'
 
 
