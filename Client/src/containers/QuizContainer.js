@@ -1,10 +1,16 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
+import { getQuizAnswer } from '../services/QuizService';
 
 const QuizContainer = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
 	const [quizAnswer, setQuizAnswer] = useState([])
+
+	useEffect(()=>{
+        getQuizAnswer().then(answer => setQuizAnswer(answer))
+
+    }, []);
 
     const questions = [
 		{

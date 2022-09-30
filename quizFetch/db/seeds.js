@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQDDMGfrg5U5gTwueh7EL8H8sjEIva8Vuh9ur7C41OXVCC1cSZ0U7ID_xfleQUkWs-s_41eyMHOUXYvakaMweGRu4XDDT9l6_LODF2Nt7v2AA3u2f8_HhcGlNLyZQwVP4_F4q7qsBEicsHrG9t2z6DkwtXR55JOLS7Co-IpL4HMqpDM"
+const token = "BQDxSjRAzK8yunFl8cQVifYgKdinAr11qUDv1aiPc4zPV7vjn8YChlgFUykIvCSQTuxrxE0Mv06ayqyTwpHGDQZyzARKQSOmHpdmKeejvcEe3CDGdY0A7fl78R2q-aQDC7efpd1a3onr3hHXckDIOPR11BTNsH0H-LPR8VUUuHswjzE"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -927,7 +927,7 @@ for (var artist in sortableArtists) {
   
   const quizSong = await quizAnswerFetch(quizAnswer[0])
   console.log(quizSong);
-  db.quizanswer.insertOne(quizSong)
+  db.quiz.insertOne(quizSong)
 
 
 //   const saveQuizSong = (element) => {
