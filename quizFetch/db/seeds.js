@@ -814,7 +814,7 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQClhniew8VGudqxnKMnd7VCagcvnj0hD_Itcw20h5kGtffTKwAGKd0Hk7nB-oMBn3AzcZ8A5UKWFdKOR4neGZ_KKncJH9GIVU0EuvBz8_ePHWH6L0RD5W5n5E6qkEUoeCdxjjYwlxHw8mWrYTtfAcoOpAupp9OVpoWsTtr7d1HMXHA"
+const token = "BQCcgQqhvD2GwiaXJfMwpEUDWLd_HWHiWiI8tvPxXDVJzNUN_AOsiX1Tjm63Ey54EwiFEC6dgzKVNY_FgeLSx0W6lgkL2K1ZNMepDhaGrs9PzGRbkZVq27R3-VRqUQ_52NX4-9uIYQbeIhNTLx5932VdbgBJL5Cu9jjdOI4zgDKQCwE"
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -826,7 +826,7 @@ const top10Fetch =  (country) => {
             }
         })
         .then(res => res.json())
-        .then(toptracks => toptracks.tracks.items.slice(0, 50))
+        .then(toptracks => toptracks.tracks.items.slice(0, 20))
   }
 
   const quizAnswerFetch =  (id) => {
@@ -840,7 +840,7 @@ const top10Fetch =  (country) => {
     .then(res => res.json())
     .then(top10 => [top10])
 }
-
+const everySong = []
 const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
   let songs =[] 
  for (let index = 0; index < songsFetch.length; index++) {
@@ -854,6 +854,7 @@ const getIndividualSongsFromFetch = (countryId, songsFetch)=>{
     artists.push({"artist_id" : element.id, "name" : element.name})
   }
   songs.push({"country_id" : countryId, "song_id" : id, "rank" : index + 1, "name" : name, "artists" : artists})
+  everySong.push({"country_id" : countryId, "song_id" : id, "rank" : index + 1, "name" : name, "artists" : artists})
  }
 return songs
 }
@@ -863,10 +864,11 @@ db.dropDatabase();
 const addAllSongs = async (countryPlaylist) => {
   timesSongInChart = {}
   timesArtistInChart = {}
+  let individualSongs = []
   for(var country in countryPlaylist) {
     if (trialCountryId[country]){
     let songsToInsert = await top10Fetch(country)
-    let individualSongs = getIndividualSongsFromFetch(country, songsToInsert)
+    individualSongs = getIndividualSongsFromFetch(country, songsToInsert)
     for (let index = 0; index < individualSongs.length; index++) {
       const element = individualSongs[index];
       if (Object.keys(timesSongInChart).includes(element.song_id) && Object.keys(timesArtistInChart).includes(element.artists[0].artist_id)){
@@ -886,21 +888,7 @@ const addAllSongs = async (countryPlaylist) => {
     db.songs.insertMany(individualSongs)
   };
   }    
-  // let sortableSongs = [];
-  // for (var song in timesSongInChart) {
-  //     sortableSongs.push([song, timesSongInChart[song]]);
-  // }
-  // sortableSongs.sort(function(a, b) {
-  //     return b[1] - a[1];
-  // });
 
-//   let sortableArtists = [];
-//   for (var artist in timesArtistInChart) {
-//     sortableArtists.push([artist, timesArtistInChart[artist]]);
-// }
-// sortableArtists.sort(function(a, b) {
-//     return b[1] - a[1];
-// });
 const sortableSongs = Object.entries(timesSongInChart)
 .sort(([,a],[,b]) => b-a)
 .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
@@ -924,39 +912,39 @@ for (var artist in sortableArtists) {
 
 
   
-  const quizSong = await quizAnswerFetch(quizAnswer[0])
+  // const quizSong = await quizAnswerFetch(quizAnswer[0])
   // console.log(quizSong);
-  db.quiz.insertOne(quizSong)
+  // db.quiz.insertOne(quizSong)
 
-  let wrongAnswers = [quizAnswer[0]]
-  while (wrongAnswers.length <= 7){
+  let wrongAnswers = []
+  while (wrongAnswers.length < 8){
     var randomSong = sortedSongs[Math.floor(Math.random()*60)]
     let wrongAnswer = randomSong[0]
-    if (!Object.keys(wrongAnswers).includes(wrongAnswer)) {
+    if (!wrongAnswers.includes(wrongAnswer)) {
+      let countriesSongChartsIn = []
+      for (let index = 0; index < everySong.length; index++) {
+        // console.log(index);
+        const element = everySong[index];
+        // console.log(element.song_id);
+        if (element.song_id === wrongAnswer) {
+          countriesSongChartsIn.push(element.country_id)
+          // console.log(element.country_id);
+          // console.log(element.song_id);
+        }
+      }
+      console.log("countriesSongChartsIn");
+      console.log(countriesSongChartsIn);
+      // wrongAnswer.push(countriesSongChartsIn)
       wrongAnswers.push(wrongAnswer)
       let quizSong = await quizAnswerFetch(wrongAnswer)
       // console.log(quizSong);
-      db.quiz.insertOne(quizSong)
+      let songObject = quizSong[0]
+      songObject["charts"] = countriesSongChartsIn
+      db.quiz.insertOne(songObject)
     }
   }
   console.log(wrongAnswers);
-  
-
-
-
-//   const saveQuizSong = (element) => {
-//   let name = element.track.name
-//   let id = element.track.id
-//   let artistsOnSong = element.track.artists
-//   let artists = []
-//   for (let index = 0; index < artistsOnSong.length; index++) {
-//     const element = artistsOnSong[index];
-//     artists.push({"artist_id" : element.id, "name" : element.name})
-//   }
-//   db.quizAnswer.insertOne[{"country_id" : countryId, "song_id" : id, "name" : name, "artists" : artists}]
-// }
 }
 addAllSongs(trialCountryId);
-
 
 
