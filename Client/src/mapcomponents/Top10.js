@@ -3,9 +3,6 @@ import Top10Item from './Top10item'
 
 const Top10 = ({playlist}) => {
 
-    console.log("passed to Top10 = ");
-    console.log(playlist);
-
     const individualTop10items = playlist.map( (songObj, i) => {
         return(
             <Top10Item 

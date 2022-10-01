@@ -814,7 +814,829 @@ const trialCountryId = {
 "ZW" : null
 }
 
-const token = "BQCcgQqhvD2GwiaXJfMwpEUDWLd_HWHiWiI8tvPxXDVJzNUN_AOsiX1Tjm63Ey54EwiFEC6dgzKVNY_FgeLSx0W6lgkL2K1ZNMepDhaGrs9PzGRbkZVq27R3-VRqUQ_52NX4-9uIYQbeIhNTLx5932VdbgBJL5Cu9jjdOI4zgDKQCwE"
+const emptyCountryChart = {
+  
+  "AD" : null,
+  
+  
+  "AE" : null,
+  
+  
+  "AF" : null,
+  
+  
+  "AG" : null,
+  
+  
+  "AI" : null,
+  
+  
+  "AL" : null,
+  
+  
+  "AM" : null,
+  
+  
+  "AO" : null,
+  
+  
+  "AQ" : null,
+  
+  
+  "AR" : null,
+  
+  
+  "AS" : null,
+  
+  
+  "AT" : null,
+  
+  
+  "AU" : null,
+  
+  "AW" : null,
+  
+  
+  "AX" : null,
+  
+  
+  "AZ" : null,
+  
+  
+  //B
+  
+  
+  "BA" : null,
+  
+  
+  "BB" : null,
+  
+  
+  "BD" : null,
+  
+  
+  "BE" : null,
+  
+  
+  "BF" : null,
+  
+  
+  "BG" : null,
+  
+  
+  "BH" : null,
+  
+  
+  "BI" : null,
+  
+  
+  "BJ" : null,
+  
+  
+  "BL" : null,
+  
+  
+  "BM" : null,
+  
+  
+  "BN" : null,
+  
+  
+  "BO" : null,
+  
+  
+  "BQ" : null,
+  
+  
+  "BR" : null,
+  
+  
+  "BS" : null,
+  
+  
+  "BT" : null,
+  
+  
+  "BV" : null,
+  
+  
+  "BW" : null,
+  
+  
+  "BY" : null,
+  
+  
+  "BZ" : null,
+  
+  
+  //C
+  
+  
+  "CA" : null,
+  
+  
+  "CC" : null,
+  
+  
+  "CD" : null,
+  
+  
+  "CF" : null,
+  
+  
+  "CG" : null,
+  
+  
+  "CH" : null,
+  
+  
+  "CI" : null,
+  
+  
+  "CK" : null,
+  
+  
+  "CL" : null,
+  
+  
+  "CM" : null,
+  
+  
+  "CN" : null,
+  
+  
+  "CO" : null,
+  
+  
+  "CR" : null,
+  
+  
+  "CU" : null,
+  
+  
+  "CV" : null,
+  
+  
+  "CW" : null,
+  
+  
+  "CX" : null,
+  
+  
+  "CY" : null,
+  
+  
+  "CZ" : null,
+  
+  
+  //D
+  
+  
+  "DE" : null,
+  
+  
+  "DJ" : null,
+  
+  
+  "DK" : null,
+  
+  
+  "DM" : null,
+  
+  
+  "DO" : null,
+  
+  
+  "DZ" : null,
+  
+  
+  //E
+  
+  
+  "EC" : null,
+  
+  
+  "EE" : null,
+  
+  
+  "EG" : null,
+  
+  
+  "EH" : null,
+  
+  
+  "ER" : null,
+  
+  
+  "ES" : null,
+  
+  
+  "ET" : null,
+  
+  
+  //F
+  
+  
+  "FI" : null,
+  
+  
+  "FJ" : null,
+  
+  
+  "FK" : null,
+  
+  "FM" : null,
+  
+  
+  "FO" : null,
+  
+  
+  "FR" : null,
+  
+  
+  //G
+  
+  
+  "GA" : null,
+  
+  
+  "GB" : null,
+  
+  
+  "GD" : null,
+  
+  
+  "GE" : null,
+  
+  
+  "GF" : null,
+  
+  
+  "GG" : null,
+  
+  
+  "GH" : null,
+  
+  
+  "GI" : null,
+  
+  
+  "GL" : null,
+  
+  
+  "GM" : null,
+  
+  
+  "GN" : null,
+  
+  
+  "GP" : null,
+  
+  
+  "GQ" : null,
+  
+  
+  "GR" : null,
+  
+  
+  "GS" : null,
+  
+  
+  "GT" : null,
+  
+  
+  "GU" : null,
+  
+  
+  "GW" : null,
+  
+  
+  "GY" : null,
+  
+  
+  //H
+  
+  
+  "HK" : null,
+  
+  
+  "HM" : null,
+  
+  
+  "HN" : null,
+  
+  
+  "HR" : null,
+  
+  
+  "HT" : null,
+  
+  
+  "HU" : null,
+  
+  
+  //I
+  
+  
+  "ID" : null,
+  
+  
+  "IE" : null,
+  
+  
+  "IL" : null,
+  
+  
+  "IM" : null,
+  
+  
+  "IN" : null,
+  
+  
+  "IO" : null,
+  
+  
+  "IQ" : null,
+  
+  
+  "IR" : null,
+  
+  
+  "IS" : null,
+  
+  
+  "IT" : null,
+  
+  
+  //J
+  
+  
+  "JE" : null,
+  
+  
+  "JM" : null,
+  
+  
+  "JO" : null,
+  
+  
+  "JP" : null,
+  
+  
+  //K
+  
+  
+  "KE" : null,
+  
+  
+  "KG" : null,
+  
+  
+  "KH" : null,
+  
+  
+  "KI" : null,
+  
+  
+  "KM" : null,
+  
+  
+  "KN" : null,
+  
+  
+  "KP" : null,
+  
+  
+  "KR" : null,
+  
+  
+  "KW" : null,
+  
+  
+  "KY" : null,
+  
+  
+  "KZ" : null,
+  
+  
+  //L
+  
+  
+  "LA" : null,
+  
+  
+  "LB" : null,
+  
+  
+  "LC" : null,
+  
+  
+  "LI" : null,
+  
+  
+  "LK" : null,
+  
+  
+  "LR" : null,
+  
+  
+  "LS" : null,
+  
+  
+  "LT" : null,
+  
+  "LU" : null,
+  
+  
+  "LV" : null,
+  
+  
+  //M
+  
+  
+  "MA" : null,
+  
+  
+  "MC" : null,
+  
+  
+  "MD" : null,
+  
+  
+  "ME" : null,
+  
+  
+  "MF" : null,
+  
+  
+  "MG" : null,
+  
+  
+  "MH" : null,
+  
+  
+  "MK" : null,
+  
+  
+  "ML" : null,
+  
+  
+  "MM" : null,
+  
+  
+  "MN" : null,
+  
+  
+  "MO" : null,
+  
+  
+  "MP" : null,
+  
+  
+  "MQ" : null,
+  
+  
+  "MR" : null,
+  
+  
+  "MS" : null,
+  
+  
+  "MT" : null,
+  
+  
+  "MU" : null,
+  
+  
+  "MV" : null,
+  
+  
+  "MW" : null,
+  
+  
+  "MX" : null,
+  
+  
+  "MY" : null,
+  
+  
+  "MZ" : null,
+  
+  
+  //N
+  
+  
+  "NA" : null,
+  
+  
+  "NC" : null,
+  
+  
+  "NE" : null,
+  
+  
+  "NF" : null,
+  
+  
+  "NG" : null,
+  
+  
+  "NI" : null,
+  
+  
+  "NL" : null,
+  
+  
+  "NO" : null,
+  
+  
+  "NP" : null,
+  
+  
+  "NR" : null,
+  
+  
+  "NU" : null,
+  
+  
+  "NZ" : null,
+  
+  
+  //O
+  
+  
+  "OM" : null,
+  
+  
+  //P
+  
+  
+  "PA" : null,
+  
+  
+  "PE" : null,
+  
+  
+  "PF" : null,
+  
+  
+  "PG" : null,
+  
+  
+  "PH" : null,
+  
+  
+  "PK" : null,
+  
+  
+  "PL" : null,
+  
+  
+  "PM" : null,
+  
+  
+  "PN" : null,
+  
+  
+  "PR" : null,
+  
+  
+  "PS" : null,
+  
+  
+  "PT" : null,
+  
+  
+  "PW" : null,
+  
+  
+  "PY" : null,
+  
+  
+  //Q
+  
+  
+  "QA" : null,
+  
+  
+  //R
+  
+  
+  "RE" : null,
+  
+  
+  "RO" : null,
+  
+  
+  "RS" : null,
+  
+  
+  "RU" : null,
+  
+  
+  "RW" : null,
+  
+  
+  //S
+  
+  
+  "SA" : null,
+  
+  
+  "SB" : null,
+  
+  
+  "SC" : null,
+  
+  
+  "SD" : null,
+  
+  
+  "SE" : null,
+  
+  
+  "SG" : null,
+  
+  
+  "SH" : null,
+  
+  
+  "SI" : null,
+  
+  
+  "SJ" : null,
+  
+  
+  "SK" : null,
+  
+  
+  "SL" : null,
+  
+  
+  "SM" : null,
+  
+  
+  "SN" : null,
+  
+  
+  "SO" : null,
+  
+  
+  "SR" : null,
+  
+  
+  "SS" : null,
+  
+  
+  "ST" : null,
+  
+  
+  "SV" : null,
+  
+  
+  "SX" : null,
+  
+  
+  "SY" : null,
+  
+  
+  "SZ" : null,
+  
+  
+  //T
+  
+  
+  "TC" : null,
+  
+  
+  "TD" : null,
+  
+  
+  "TF" : null,
+  
+  
+  "TG" : null,
+  
+  
+  "TH" : null,
+  
+  
+  "TJ" : null,
+  
+  
+  "TK" : null,
+  
+  
+  "TL" : null,
+  
+  
+  "TM" : null,
+  
+  
+  "TN" : null,
+  
+  
+  "TO" : null,
+  
+  
+  "TR" : null,
+  
+  
+  "TT" : null,
+  
+  
+  "TW" : null,
+  
+  
+  "TZ" : null,
+  
+  
+  //U
+  
+  
+  "UA" : null,
+  
+  
+  "UG" : null,
+  
+  
+  "UM" : null,
+  
+  
+  "US" : null,
+  
+  
+  "UY" : null,
+  
+  
+  "UZ" : null,
+  
+  
+  //V
+  
+  
+  "VA" : null,
+  
+  
+  "VC" : null,
+  
+  
+  "VE" : null,
+  
+  
+  "VG" : null,
+  
+  
+  "VI" : null,
+  
+  
+  "VN" : null,
+  
+  
+  "VU" : null,
+  
+  
+  //W
+  
+  
+  "WF" : null,
+  
+  
+  "WS" : null,
+  
+  
+  //Y
+  
+  
+  "YE" : null,
+  
+  
+  "YT" : null,
+  
+  
+  //Z
+  
+  
+  "ZA" : null,
+  
+  
+  "ZM" : null,
+  
+  
+  "ZW" : null
+  }
+
+const token = "BQAJvB9XMWAC3_Z8UVyZeLOe-P2q6bVfDPAJ9TwP3MtLrxzBoa3bbLVN7-5vgxJBx9L5A5PMZnCYE9T2ZIcwx65qFr3YgA5GG4GWkFGKDT3TPsnu1UZT82vr0hvWkCzGTDFWJxhvY6dXwcafcadqoP5KlAkDFs2dVU7XRijaJ5gu0a8"
+
+function shuffleArray(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
+
 const top10Fetch =  (country) => {
         const playlistId = trialCountryId[country]
         console.log(country);
@@ -917,17 +1739,18 @@ for (var artist in sortableArtists) {
   // db.quiz.insertOne(quizSong)
 
   let wrongAnswers = []
+  let randomAnswers = []
   while (wrongAnswers.length < 8){
     var randomSong = sortedSongs[Math.floor(Math.random()*60)]
     let wrongAnswer = randomSong[0]
     if (!wrongAnswers.includes(wrongAnswer)) {
-      let countriesSongChartsIn = []
+      let countriesSongChartsIn = emptyCountryChart
       for (let index = 0; index < everySong.length; index++) {
         // console.log(index);
         const element = everySong[index];
         // console.log(element.song_id);
         if (element.song_id === wrongAnswer) {
-          countriesSongChartsIn.push(element.country_id)
+          countriesSongChartsIn[element.country_id] = element.rank
           // console.log(element.country_id);
           // console.log(element.song_id);
         }
@@ -940,10 +1763,14 @@ for (var artist in sortableArtists) {
       // console.log(quizSong);
       let songObject = quizSong[0]
       songObject["charts"] = countriesSongChartsIn
+      randomAnswers.push(songObject)
       db.quiz.insertOne(songObject)
     }
   }
   console.log(wrongAnswers);
+  shuffleArray(randomAnswers)
+  console.log(randomAnswers);
+  db.quiz.insertMany(randomAnswers)
 }
 addAllSongs(trialCountryId);
 

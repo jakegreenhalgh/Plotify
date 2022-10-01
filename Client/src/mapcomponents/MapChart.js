@@ -11,6 +11,7 @@ function MapChart({token}) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
+  // const [mapAlpha, setMapAlpha] = useState(countryPlaylistId);
 
   let accessToken = "BQDxSjRAzK8yunFl8cQVifYgKdinAr11qUDv1aiPc4zPV7vjn8YChlgFUykIvCSQTuxrxE0Mv06ayqyTwpHGDQZyzARKQSOmHpdmKeejvcEe3CDGdY0A7fl78R2q-aQDC7efpd1a3onr3hHXckDIOPR11BTNsH0H-LPR8VUUuHswjzE"
 

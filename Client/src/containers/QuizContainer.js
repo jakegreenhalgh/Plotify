@@ -1,18 +1,25 @@
 import React, {useState, useEffect} from 'react'
+import QuizMap from '../quizComponents/QuizMap';
+import QuizQuestions from '../quizComponents/QuizQuestions';
 import { getQuizAnswer } from '../services/QuizService';
 
 const QuizContainer = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
-	const [quizAnswer, setQuizAnswer] = useState([])
+	const [questions, setQuestions] = useState([])
+	const [answers, setAnswers] = useState([])
+
 
 	useEffect(()=>{
-        getQuizAnswer().then(answer => setQuizAnswer(answer))
-
+        getQuizAnswer().then(answer => setQuestions(answer.slice(0,8)))
+        getQuizAnswer().then(answer => setAnswers(answer.slice(8,16)))
     }, []);
 
-    const questions = [
+	// const currentQuestionCountryArray = questions[currentQuestion].charts
+	// console.log(currentQuestionCountryArray);
+
+    const exampleQuestions = [
 		{
 			questionText: 'What is the capital of France?',
 			answerOptions: [
@@ -64,27 +71,31 @@ const QuizContainer = () => {
 		}
 	};
 	return (
+		
 		<div className='app'>
+			<QuizMap currentQuestion={currentQuestion} questions={questions}/>
 			{showScore ? (
 				<div className='score-section'>
-					You scored {score} out of {questions.length}
+					You scored {score} out of {exampleQuestions.length}
 				</div>
 			) : (
 				<>
 					<div className='question-section'>
 						<div className='question-count'>
-							<span>Question {currentQuestion + 1}</span>/{questions.length}
+							<span>Question {currentQuestion + 1}</span>/{exampleQuestions.length}
 						</div>
-						<div className='question-text'>{questions[currentQuestion].questionText}</div>
+						<div className='question-text'>{exampleQuestions[currentQuestion].questionText}</div>
 					</div>
 					<div className='answer-section'>
-						{questions[currentQuestion].answerOptions.map((answerOption) => (
+						{exampleQuestions[currentQuestion].answerOptions.map((answerOption) => (
 							<button onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 						))}
 					</div>
 				</>
 			)}
+			<QuizQuestions questions={questions}/>
 		</div>
+		
 	);
 }
 
