@@ -1626,7 +1626,7 @@ const emptyCountryChart = {
   "ZW" : null
   }
 
-const token = "BQAJvB9XMWAC3_Z8UVyZeLOe-P2q6bVfDPAJ9TwP3MtLrxzBoa3bbLVN7-5vgxJBx9L5A5PMZnCYE9T2ZIcwx65qFr3YgA5GG4GWkFGKDT3TPsnu1UZT82vr0hvWkCzGTDFWJxhvY6dXwcafcadqoP5KlAkDFs2dVU7XRijaJ5gu0a8"
+const token = "BQDCAa0fidQJGBJJkU37o6tLMSizmwtWMKxsMxds9JtUxKrPrHcBFu4elDWkGWycmzIGHKapFI8IhD4akQCl3vfjprv6QHSxpNZBs4HHOpSuYGK5NmUin7riB1vnE2-dyOVSHttohNqyUlCeiZSRnWHfbxByWRNsITOHOJ7ldL21alE"
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -1740,11 +1740,12 @@ for (var artist in sortableArtists) {
 
   let wrongAnswers = []
   let randomAnswers = []
+  let countriesSongChartsIn = emptyCountryChart
   while (wrongAnswers.length < 8){
     var randomSong = sortedSongs[Math.floor(Math.random()*60)]
     let wrongAnswer = randomSong[0]
     if (!wrongAnswers.includes(wrongAnswer)) {
-      let countriesSongChartsIn = emptyCountryChart
+      // let countriesSongChartsIn = emptyCountryChart
       for (let index = 0; index < everySong.length; index++) {
         // console.log(index);
         const element = everySong[index];
@@ -1755,8 +1756,8 @@ for (var artist in sortableArtists) {
           // console.log(element.song_id);
         }
       }
-      console.log("countriesSongChartsIn");
-      console.log(countriesSongChartsIn);
+      // console.log("countriesSongChartsIn");
+      // console.log(countriesSongChartsIn);
       // wrongAnswer.push(countriesSongChartsIn)
       wrongAnswers.push(wrongAnswer)
       let quizSong = await quizAnswerFetch(wrongAnswer)
@@ -1765,6 +1766,7 @@ for (var artist in sortableArtists) {
       songObject["charts"] = countriesSongChartsIn
       randomAnswers.push(songObject)
       db.quiz.insertOne(songObject)
+      countriesSongChartsIn = emptyCountryChart
     }
   }
   console.log(wrongAnswers);

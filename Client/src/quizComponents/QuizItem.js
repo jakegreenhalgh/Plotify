@@ -1,8 +1,12 @@
 import React from 'react'
 
-const QuizItem = ({songName}) => {
+const QuizItem = ({songName, songID, checkQuestion}) => {
+
+const handleGuess = () => {
+    checkQuestion(songID)
+}
   return (
-    <div>{songName}</div>
+    <button onClick={handleGuess}>{songName} {songID}</button>
   )
 }
 
