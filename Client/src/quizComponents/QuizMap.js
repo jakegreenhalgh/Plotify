@@ -2,6 +2,7 @@ import React from 'react'
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps"
 import { useState, useEffect } from "react";
 import QuizMapColours from './QuizMapColours';
+import colourGradient from './colourGradient';
 
 
 const QuizMap = ({currentQuestion, questions}) => {
@@ -11,18 +12,15 @@ const QuizMap = ({currentQuestion, questions}) => {
     // }
     const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-    // const getColourNodes = (currentQuestion, questions, geo) => {
-    //     console.log("getColourNodes");
-    //     if (!questions[currentQuestion]) {
-    //         if (questions[currentQuestion].charts[geo.properties["Alpha-2"]] < 10) {
-    //             return "#FFD700"
-    //         } else {
-    //             return "808080"
-    //         }
-    //     } else {
-    //         return "#ffffff"
-    //     }
-    // }
+    const getColourNodes = (currentQuestion, questions, geo) => {
+        console.log("getColourNodes");
+        let chartValue = questions[currentQuestion].charts[geo.properties["Alpha-2"]]
+        if (!chartValue) {
+            return "#808080"
+        } else {
+            return colourGradient[chartValue]
+    }
+}
 
   return (
     <>
@@ -37,8 +35,8 @@ const QuizMap = ({currentQuestion, questions}) => {
             style={{
                 default: {
                 //   fill: "#ffffff",
-                  fill: questions[currentQuestion].charts[geo.properties["Alpha-2"]]? "#ffffff" : "#808080",
-                //   fill: getColourNodes(currentQuestion, questions, geo),
+                //   fill: questions[currentQuestion].charts[geo.properties["Alpha-2"]]? "#ffffff" : "#808080",
+                  fill: getColourNodes(currentQuestion, questions, geo),
                   outline: 'none'
                 },
                 hover: {
