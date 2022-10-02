@@ -20,13 +20,18 @@ function App() {
       getToken();
   
     }, []);
+
+    const logout = () => {
+        setToken("")
+    }
   
     return (
-      <>
-          { (token === '') ? <Login/> : <>
-          <MapContainer token={token}/>
-          <WebPlayback token={token} /></> }
-      </>
+      <div className='App'>
+          { (token === '') ? <Login/> : <div className='App-header'>
+          <button onClick={logout}>Logout</button>
+          <MapContainer token={token} />
+          <WebPlayback token={token}/></div> }
+      </div>
     );
   }
   
