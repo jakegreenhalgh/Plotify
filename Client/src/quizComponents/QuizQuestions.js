@@ -1,9 +1,9 @@
 import React from 'react'
 import QuizItem from './QuizItem'
 
-const QuizQuestions = ({answers, checkQuestion}) => {
-    const questionsList = answers.map((question) => {
-        return <QuizItem songName={question.name} key={question.id} songID={question.id} checkQuestion={checkQuestion}/>
+const QuizQuestions = ({questions, checkQuestion, answeredQuestions}) => {
+    const questionsList = questions.map((question) => {
+        return <QuizItem answeredQuestions={answeredQuestions} songName={question.name} key={question.id} songID={question.id} checkQuestion={checkQuestion} songArtists={question.artists}/>
     })
   return (
     <>

@@ -5,22 +5,13 @@ import QuizMapColours from './QuizMapColours';
 import colourGradient from './colourGradient';
 
 
-const QuizMap = ({currentQuestion, questions}) => {
+const QuizMap = ({currentQuestion, answers}) => {
 
     // const getLog = () => {
     //     console.log(questions[currentQuestion].charts["BR"])
     // }
     const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-    const getColourNodes = (currentQuestion, questions, geo) => {
-        console.log("getColourNodes");
-        let chartValue = questions[currentQuestion].charts[geo.properties["Alpha-2"]]
-        if (!chartValue) {
-            return "#808080"
-        } else {
-            return colourGradient[chartValue]
-    }
-}
 
   return (
     <>
@@ -35,8 +26,9 @@ const QuizMap = ({currentQuestion, questions}) => {
             style={{
                 default: {
                 //   fill: "#ffffff",
-                //   fill: questions[currentQuestion].charts[geo.properties["Alpha-2"]]? "#ffffff" : "#808080",
-                  fill: getColourNodes(currentQuestion, questions, geo),
+                  fill: answers[currentQuestion].charts[geo.properties["Alpha-2"]]? colourGradient[answers[currentQuestion].charts[geo.properties["Alpha-2"]]] : "#808080",
+                //   fill: colourGradient[questions[currentQuestion].charts[geo.properties["Alpha-2"]]],
+                //   fill: getColourNodes(currentQuestion, questions, geo),
                   outline: 'none'
                 },
                 hover: {

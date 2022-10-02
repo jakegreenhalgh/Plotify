@@ -1626,7 +1626,7 @@ const emptyCountryChart = {
   "ZW" : null
   }
 
-const token = "BQDra2S9CMe1_UARcySNb7G8tjtmosp33RGOC6wJHz99l7c9j5faLbi7VlykzUdula2hsXQeIOKrJmLSPWMUCXJfpa0DgDyWDaT0MBl2hcCZzSSvywYKfio48vLk0CSCzbrsBkhVfnssiHAX4QsCLfQBp20oRcICOwG3SkbYi-Qbp1s"
+const token = "BQBpWQGfy7VZX4KwTMljR6iylOmz0kaqdMtsPPcVFEpYe92woJQ8k0YXGuWauSUhe5H4ymLKY8iDB6PkvXfhHo3eJtsSFE1zSOOwAMz4z4hqWSgGWAHPKdzW8iAr6Zhs0c_dYR3t0f6qPOpz8sDcRZGdBIuDx9DlxZ-IPbmD66DgQhA"
 
 const copyArray = () => {
   let copiedArray = []
@@ -1750,7 +1750,7 @@ for (var artist in sortableArtists) {
   let wrongAnswers = []
   let randomAnswers = []
   // let countriesSongChartsIn = emptyCountryChart
-  while (wrongAnswers.length < 8){
+  while (wrongAnswers.length < 9){
     var randomSong = sortedSongs[Math.floor(Math.random()*60)]
     let wrongAnswer = randomSong[0]
     if (!wrongAnswers.includes(wrongAnswer)) {
@@ -1781,6 +1781,7 @@ for (var artist in sortableArtists) {
     }
   }
   console.log(wrongAnswers);
+  randomAnswers.pop()
   shuffleArray(randomAnswers)
   console.log(randomAnswers);
   db.quiz.insertMany(randomAnswers)

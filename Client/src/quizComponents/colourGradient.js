@@ -1,4 +1,5 @@
 const colourGradient = {
+    null:"#808080",
     "1":"#00ff36",
     "2":"#57f10f",
     "3":"#75e300",
