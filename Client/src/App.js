@@ -13,16 +13,16 @@ function App() {
     useEffect(() => {
   
         async function getToken() {
-        const response = await fetch('/auth/token');
-        const json = await response.json();
-        setToken(json.access_token);
+            const response = await fetch('/auth/token');
+            const json = await response.json();
+            setToken(json.access_token);
 
-        const userResponse = await fetch("https://api.spotify.com/v1/me", {
-            method: 'GET', headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token
-            }
+            const userResponse = await fetch("https://api.spotify.com/v1/me", {
+                method: 'GET', headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + json.access_token
+                }
         });
         const userJson = await userResponse.json();
         setUserId(userJson.id);
