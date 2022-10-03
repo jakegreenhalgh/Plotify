@@ -11,6 +11,10 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
+  // const [mapAlpha, setMapAlpha] = useState(countryPlaylistId);
+
+  let accessToken = "BQDxSjRAzK8yunFl8cQVifYgKdinAr11qUDv1aiPc4zPV7vjn8YChlgFUykIvCSQTuxrxE0Mv06ayqyTwpHGDQZyzARKQSOmHpdmKeejvcEe3CDGdY0A7fl78R2q-aQDC7efpd1a3onr3hHXckDIOPR11BTNsH0H-LPR8VUUuHswjzE"
+
 
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
@@ -19,7 +23,7 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
             method: 'GET', headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token
+                'Authorization': 'Bearer ' + accessToken
             }
         })
             .then(res => res.json())
