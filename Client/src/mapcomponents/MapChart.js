@@ -23,7 +23,7 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
             method: 'GET', headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + accessToken
+                'Authorization': 'Bearer ' + token
             }
         })
             .then(res => res.json())
