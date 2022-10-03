@@ -68,7 +68,7 @@ function MapChart({token}) {
     </ComposableMap>
     <div>{clickedCountry.name}</div>
     {clickedCountry ? 
-    <Top10 playlist={playlist}/>
+    <Top10 playlist={playlist} token={token}/>
     :
     null
     }

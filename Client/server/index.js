@@ -25,7 +25,7 @@ var generateRandomString = function (length) {
   
   app.get('/auth/login', (req, res) => {
   
-    var scope = "streaming user-read-email user-read-private"
+    var scope = "streaming user-read-email user-read-private playlist-modify-private playlist-modify-public user-library-modify"
     var state = generateRandomString(16);
   
     var auth_query_parameters = new URLSearchParams({

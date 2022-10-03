@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
 import Top10Item from './Top10item'
 
-const Top10 = ({playlist}) => {
+const Top10 = ({playlist, token}) => {
 
 
          
@@ -16,6 +15,8 @@ const Top10 = ({playlist}) => {
             songName={songObj.track.name} 
             songArtists={songObj.track.artists}
             preview={songObj.track.preview_url}
+            id={songObj.track.id}
+            token={token}
             />
         )
     })

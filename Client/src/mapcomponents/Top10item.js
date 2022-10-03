@@ -1,8 +1,11 @@
 import React from 'react'
+import axios from 'axios';
 
-const Top10Item = ({image, songName, songArtists, preview}) => {
+const Top10Item = ({image, songName, songArtists, preview, id, token}) => {
 
     let audio = new Audio(preview)
+
+    console.log(id);
 
     const playTrack = () => {
         audio.play()
@@ -12,8 +15,15 @@ const Top10Item = ({image, songName, songArtists, preview}) => {
     }  
 
     const addToLikes = () => {
-        console.log("hi!")
-    }
+        axios({
+            method: 'put',
+            url: `https://api.spotify.com/v1/me/tracks`,
+            headers: { 'Authorization': 'Bearer ' + token },
+            data: {
+              "ids": [id]
+            }
+          })
+        }
 
     return(
     <div>
