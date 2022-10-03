@@ -1626,7 +1626,7 @@ const emptyCountryChart = {
   "ZW" : null
   }
 
-const token = "BQBpWQGfy7VZX4KwTMljR6iylOmz0kaqdMtsPPcVFEpYe92woJQ8k0YXGuWauSUhe5H4ymLKY8iDB6PkvXfhHo3eJtsSFE1zSOOwAMz4z4hqWSgGWAHPKdzW8iAr6Zhs0c_dYR3t0f6qPOpz8sDcRZGdBIuDx9DlxZ-IPbmD66DgQhA"
+const token = "BQAD3uL51m9SYYMU7WgTKpE-hH-8NOfhwy1KgPHB2SQmeyOcD08A8_d2Fap3fIuQoplJCA1lA3sKdu1ZdR3H4MyjH1VYAdVlF8S-VUcJa_eIUAC7x2p0k_FxFII_8O_4TbXlUkPlkQ4CfSvrI83554gRHb6pgzeFC9tbx6yVJfCGRk4"
 
 
 function shuffleArray(array) {
@@ -1773,8 +1773,8 @@ for (var artist in sortableArtists) {
     }
   }
   console.log(wrongAnswers);
-  randomAnswers.pop()
-  shuffleArray(randomAnswers)
+  shuffleArray(randomAnswers);
+  randomAnswers.pop();
   console.log(randomAnswers);
   db.quiz.insertMany(randomAnswers)
 }

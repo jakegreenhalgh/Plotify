@@ -5,25 +5,29 @@ const QuizItem = ({songName, songID, songArtists, checkQuestion, answeredQuestio
 
 const handleGuess = () => {
     checkQuestion(songID)
+    console.log(songID);
 }
 
-// const getButtonStatus = (answeredQuestions, songID) => {
-//     if (!answeredQuestions.hasOwnProperty(songID)){
-//         return <QuestionUnanswered disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionUnanswered>
-//     } else if (answeredQuestions.hasOwnProperty(songID) && answeredQuestions[songID]) {
-//         <QuestionCorrect disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionCorrect>
-//     } else {
-//         <QuestionIncorrect disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionIncorrect>
-//     }
-// }
-// const buttonStatus = getButtonStatus(answeredQuestions, songID)
+const getButtonStatus = (answeredQuestions, songID) => {
+    if (!answeredQuestions.hasOwnProperty(songID)){
+        return <QuestionUnanswered disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionUnanswered>
+    } else if (answeredQuestions[songID]) {
+        return <QuestionCorrect disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionCorrect>
+    } else {
+        return <QuestionIncorrect disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionIncorrect>
+    }
+}
+const buttonStatus = getButtonStatus(answeredQuestions, songID)
 
 
   return (
-    // <>
-    // {buttonStatus}
-    // </>
-    <button disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</button>
+    <>
+    {buttonStatus}
+    </>
+    // <button disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>
+    //     {songID}
+    //     {songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}
+    // </button>
   )
 }
 

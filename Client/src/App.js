@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import MapContainer from './containers/MapContainer';
 import Login from './Login';
+import QuizContainer from './containers/QuizContainer';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
       <div className='App'>
           { (token === '') ? <Login/> : <div className='App-header'>
           <button onClick={logout}>Logout</button>
+          <QuizContainer/>
           <MapContainer token={token} />
           </div> }
       </div>
