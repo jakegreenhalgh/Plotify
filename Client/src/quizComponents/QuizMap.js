@@ -1,7 +1,6 @@
 import React from 'react'
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps"
 import { useState, useEffect } from "react";
-import QuizMapColours from './QuizMapColours';
 import colourGradient from './colourGradient';
 
 

@@ -5,7 +5,6 @@ const QuizItem = ({songName, songID, songArtists, checkQuestion, answeredQuestio
 
 const handleGuess = () => {
     checkQuestion(songID)
-    console.log(songID);
 }
 
 const getButtonStatus = (answeredQuestions, songID) => {

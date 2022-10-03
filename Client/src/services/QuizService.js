@@ -30,3 +30,14 @@ export const updateUser = (payload) => {
     })
     .then(res => res.json())
 }
+
+export const addScore = (score) => {
+    return fetch(baseURL, {
+      method: 'POST',
+      body: JSON.stringify(score),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(res => res.json());
+}
