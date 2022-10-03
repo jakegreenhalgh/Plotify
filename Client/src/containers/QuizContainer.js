@@ -9,7 +9,9 @@ const QuizContainer = () => {
 	const [score, setScore] = useState(0);
 	const [questions, setQuestions] = useState([])
 	const [answers, setAnswers] = useState([])
-	const [answeredQuestions, setAnsweredQuestions] = useState([])
+	// const [answeredQuestions, setAnsweredQuestions] = useState([])
+	const [answeredQuestions, setAnsweredQuestions] = useState({})
+
 
 
 	useEffect(()=>{
@@ -29,19 +31,20 @@ const QuizContainer = () => {
 			let updateScore = score
 			updateScore += 1
 			setScore(updateScore)
-			// let newAnswer = answeredQuestions
-			// newAnswer[answers[currentQuestion].id] = true
-			// setAnsweredQuestions(newAnswer)
-		} 
-		// else {
-		// 	let newAnswer = answeredQuestions
-		// 	newAnswer[answers[currentQuestion].id] = false
-		// 	setAnsweredQuestions(newAnswer)
-		// }
 
-		let newAnswer = answeredQuestions
-		newAnswer.push(answers[currentQuestion].id)
-		setAnsweredQuestions(newAnswer)
+			let newAnswers = {...answeredQuestions}
+			newAnswers[answers[currentQuestion].id] = true
+			setAnsweredQuestions(newAnswers)
+		} 
+		else {
+			let newAnswers = {...answeredQuestions}
+			newAnswers[answers[currentQuestion].id] = false
+			setAnsweredQuestions(newAnswers)
+		}
+
+		// let newAnswer = answeredQuestions
+		// newAnswer.push(answers[currentQuestion].id)
+		// setAnsweredQuestions(newAnswer)
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length - 1) {

@@ -1628,14 +1628,6 @@ const emptyCountryChart = {
 
 const token = "BQBpWQGfy7VZX4KwTMljR6iylOmz0kaqdMtsPPcVFEpYe92woJQ8k0YXGuWauSUhe5H4ymLKY8iDB6PkvXfhHo3eJtsSFE1zSOOwAMz4z4hqWSgGWAHPKdzW8iAr6Zhs0c_dYR3t0f6qPOpz8sDcRZGdBIuDx9DlxZ-IPbmD66DgQhA"
 
-const copyArray = () => {
-  let copiedArray = []
-for (let index = 0; index < emptyCountryChart.length; index++) {
-  const element = emptyCountryChart[index];
-  copiedArray.push(element)
-}
-  return copiedArray
-}
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
