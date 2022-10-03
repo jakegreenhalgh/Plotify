@@ -1,54 +1,38 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import MapContainer from './containers/MapContainer';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import Login from './Login';
+
 
 function App() {
-  const CLIENT_ID = "b1456a8b38284b83a4818759f42a75c3"
-  const REDIRECT_URI = "http://localhost:3000"
-  const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
-  const RESPONSE_TYPE = "token"
 
-  const [token, setToken] = useState("")
-
-  useEffect(() => {
-      const hash = window.location.hash
-      let token = window.localStorage.getItem("token")
-
-      if (!token && hash) {
-          token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]
-
-          window.location.hash = ""
-          window.localStorage.setItem("token", token)
+    const [token, setToken] = useState('');
+  
+    useEffect(() => {
+  
+      async function getToken() {
+        const response = await fetch('/auth/token');
+        const json = await response.json();
+        setToken(json.access_token);
       }
+  
+      getToken();
+  
+    }, []);
 
-      setToken(token)
-
-  }, [])
-
-  const logout = () => {
-      setToken("")
-      window.localStorage.removeItem("token")
-  }
-
-  return (
-      <div className="App">
-            <header className="App-header">
-                <h1>Spotify React</h1>
-            
-              {!token ?
-                  <a href={`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`}>Login
-                      to Spotify</a>
-                  : <button onClick={logout}>Logout</button>}
-                  <Router>
-                    <Routes>
-                        <Route path="/quiz" element={<QuizContainer/>}   />
-                    </Routes>
-                  </Router>
-                  <MapContainer token={token}/>
-          </header>
+    const logout = () => {
+        setToken("")
+    }
+  
+    return (
+      <div className='App'>
+          { (token === '') ? <Login/> : <div className='App-header'>
+          <button onClick={logout}>Logout</button>
+          <MapContainer token={token} />
+          </div> }
       </div>
-  );
-}
-
-export default App;
+    );
+  }
+  
+  
+  export default App;
