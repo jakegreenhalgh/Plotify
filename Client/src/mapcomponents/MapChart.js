@@ -7,7 +7,7 @@ import countryPlaylistId from "../CountryPlaylist";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-function MapChart({token}) {
+function MapChart({token, setPlaylistID, setCurrentIndex}) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
@@ -18,6 +18,7 @@ function MapChart({token}) {
 
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
+      setPlaylistID(playlistId)
       fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
                 'Accept': 'application/json',
@@ -32,7 +33,8 @@ function MapChart({token}) {
 
 
     const handleClick = (geo) => {
-        setClickedCountry(geo.properties);
+        setClickedCountry(geo.properties)
+        ;
         // console.log(clickedCountry);
         // console.log(clickedCountry["Alpha-2"]);
         // console.log(countryPlaylistId[clickedCountry["Alpha-2"]])
@@ -69,7 +71,7 @@ function MapChart({token}) {
     </ComposableMap>
     <div>{clickedCountry.name}</div>
     {clickedCountry ? 
-    <Top10 playlist={playlist}/>
+    <Top10 playlist={playlist} token={token} setCurrentIndex={setCurrentIndex}/>
     :
     null
     }
