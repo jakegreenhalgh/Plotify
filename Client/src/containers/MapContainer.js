@@ -9,7 +9,7 @@ function MapContainer ({token}){
     const [playlistID, setPlaylistID] = useState([]);
     const [currentTrack, setCurrentTrack] = useState({});
     const [currentIndex, setCurrentIndex] = useState(0);
-    
+
 
 
     return (
@@ -17,7 +17,7 @@ function MapContainer ({token}){
         <MapChart className="Map" 
         token={token} 
         setPlaylistID={setPlaylistID}
-        setCurrentTrack={setCurrentTrack}
+        setCurrentIndex={setCurrentIndex}
         />
         <Player 
         playlistID={playlistID} 

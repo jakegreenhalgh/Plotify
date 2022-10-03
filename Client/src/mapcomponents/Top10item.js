@@ -1,17 +1,11 @@
 import React from 'react'
 import axios from 'axios';
 
-const Top10Item = ({image, songName, songArtists, preview, id, token}) => {
+const Top10Item = ({image, songName, songArtists, preview, id, token, setCurrentIndex, index}) => {
 
-    let audio = new Audio(preview)
-
-    const playTrack = () => {
-        audio.play()
-  }
-    const pauseTrack = () => {
-        audio.currentTime = 0
-        audio.pause()
-    }  
+    const chooseTrack = () => {
+      setCurrentIndex(index)
+    }
 
     const addToLikes = () => {
         axios({
@@ -25,8 +19,8 @@ const Top10Item = ({image, songName, songArtists, preview, id, token}) => {
         }
 
     return(
-    <div>
-        <img src={image} alt='album artwork' onMouseEnter={playTrack} onMouseLeave={pauseTrack}/>
+    <div onClick={chooseTrack}>
+        <img src={image} alt='album artwork'/>
         {songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}{songArtists[2]?", "+songArtists[2].name:null}
         <button onClick={addToLikes}>Add to likes</button>
     </div>
