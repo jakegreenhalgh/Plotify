@@ -7,7 +7,7 @@ import countryPlaylistId from "../CountryPlaylist";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-function MapChart({token, setPlaylistID}) {
+function MapChart({token, setPlaylistID, setCurrentTrack}) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
@@ -32,7 +32,9 @@ function MapChart({token, setPlaylistID}) {
 
 
     const handleClick = (geo) => {
-        setClickedCountry(geo.properties);
+        setClickedCountry(geo.properties)
+        setCurrentTrack({})
+        ;
         // console.log(clickedCountry);
         // console.log(clickedCountry["Alpha-2"]);
         // console.log(countryPlaylistId[clickedCountry["Alpha-2"]])

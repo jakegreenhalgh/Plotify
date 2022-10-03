@@ -9,6 +9,7 @@ const Top10Item = ({image, songName, songArtists, preview, id, token}) => {
         audio.play()
   }
     const pauseTrack = () => {
+        audio.currentTime = 0
         audio.pause()
     }  
 

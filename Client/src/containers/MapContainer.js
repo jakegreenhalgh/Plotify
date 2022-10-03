@@ -1,18 +1,32 @@
 import './App.css';
 
 import MapChart from '../mapcomponents/MapChart';
-import Footer from '../mapcomponents/Footer';
+import Player from '../MusicPlayer';
 import { useState } from 'react';
 
 function MapContainer ({token}){
     
     const [playlistID, setPlaylistID] = useState([]);
+    const [currentTrack, setCurrentTrack] = useState({});
+    const [currentIndex, setCurrentIndex] = useState(0);
+    
 
 
     return (
         <>
-        <MapChart className="Map" token={token} setPlaylistID={setPlaylistID}/>
-        <Footer playlistID={playlistID}/>
+        <MapChart className="Map" 
+        token={token} 
+        setPlaylistID={setPlaylistID}
+        setCurrentTrack={setCurrentTrack}
+        />
+        <Player 
+        playlistID={playlistID} 
+        token={token}
+        currentTrack={currentTrack} 
+        setCurrentTrack={setCurrentTrack}
+        currentIndex={currentIndex} 
+        setCurrentIndex={setCurrentIndex}
+        />
         </>
     )
 }
