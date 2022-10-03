@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import QuizMap from '../quizComponents/QuizMap';
 import QuizQuestions from '../quizComponents/QuizQuestions';
+import { addScore } from '../services/QuizService';
 import { getUsersScore } from '../services/QuizService';
 import { getQuizAnswer } from '../services/QuizService';
 
@@ -10,7 +11,6 @@ const QuizContainer = ({userId}) => {
 	const [score, setScore] = useState(0);
 	const [questions, setQuestions] = useState([])
 	const [answers, setAnswers] = useState([])
-	// const [answeredQuestions, setAnsweredQuestions] = useState([])
 	const [answeredQuestions, setAnsweredQuestions] = useState({})
 
 
@@ -48,23 +48,14 @@ const QuizContainer = ({userId}) => {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowScore(true);
-			// console.log("getUserService");
-			// console.log(await getUsersScore(userId));
-
-			let today = new Date();
-			var dd = String(today.getDate()).padStart(2, '0');
-			var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-			var yyyy = today.getFullYear();
-			today = mm + '/' + dd + '/' + yyyy;
-
 			let finalScore = {
 				"userID" : userId,
-				"scores" : {today:score}
+				"scores" : {score}
 			}
 			console.log("finalScore = ");
 			console.log(finalScore);
-		
-
+			// console.log(getUsersScore());
+			// addScore(userId, finalScore)
 		}
 	}
 	return (

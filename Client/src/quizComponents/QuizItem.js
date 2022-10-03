@@ -1,19 +1,29 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const QuizItem = ({songName, songID, songArtists, checkQuestion, answeredQuestions}) => {
+const QuizItem = ({songName, songID, songArtists, checkQuestion, answeredQuestions, preview}) => {
+
+let audio = new Audio(preview)
 
 const handleGuess = () => {
     checkQuestion(songID)
+    audio.pause()
 }
+const playTrack = () => {
+    audio.currentTime = 0
+    audio.play()
+}
+const pauseTrack = () => {
+    audio.pause()
+}  
 
 const getButtonStatus = (answeredQuestions, songID) => {
     if (!answeredQuestions.hasOwnProperty(songID)){
-        return <QuestionUnanswered disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionUnanswered>
+        return <QuestionUnanswered onMouseEnter={playTrack} onMouseLeave={pauseTrack} onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionUnanswered>
     } else if (answeredQuestions[songID]) {
-        return <QuestionCorrect disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionCorrect>
+        return <QuestionCorrect onMouseEnter={playTrack} onMouseLeave={pauseTrack} disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionCorrect>
     } else {
-        return <QuestionIncorrect disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionIncorrect>
+        return <QuestionIncorrect onMouseEnter={playTrack} disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionIncorrect>
     }
 }
 const buttonStatus = getButtonStatus(answeredQuestions, songID)
