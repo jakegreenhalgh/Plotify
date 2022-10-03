@@ -5,11 +5,10 @@ import Player from '../MusicPlayer';
 import { useState } from 'react';
 
 function MapContainer ({token}){
-    
+
     const [playlistID, setPlaylistID] = useState(null);
     const [currentTrack, setCurrentTrack] = useState({});
     const [currentIndex, setCurrentIndex] = useState(0);
-
 
 
     return (
