@@ -1,11 +1,19 @@
 import './App.css';
 
 import MapChart from '../mapcomponents/MapChart';
+import Footer from '../mapcomponents/Footer';
+import { useState } from 'react';
 
 function MapContainer ({token}){
-    console.log(token);
+    
+    const [playlistID, setPlaylistID] = useState([]);
+
+
     return (
-        <MapChart className="Map" token={token}/>
+        <>
+        <MapChart className="Map" token={token} setPlaylistID={setPlaylistID}/>
+        <Footer playlistID={playlistID}/>
+        </>
     )
 }
 

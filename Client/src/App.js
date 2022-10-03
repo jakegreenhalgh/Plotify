@@ -30,7 +30,8 @@ function App() {
           { (token === '') ? <Login/> : <div className='App-header'>
           <button onClick={logout}>Logout</button>
           <MapContainer token={token} />
-          <WebPlayback token={token}/></div> }
+          {/* <WebPlayback token={token}/>*/}
+          </div> }
       </div>
     );
   }

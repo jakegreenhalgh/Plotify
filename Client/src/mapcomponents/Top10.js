@@ -5,7 +5,7 @@ const Top10 = ({playlist, token}) => {
 
          
     console.log("passed to Top10 = ");
-    console.log(playlist);
+    console.log(playlist.id);
 
     const individualTop10items = playlist.map( (songObj, i) => {
         return(

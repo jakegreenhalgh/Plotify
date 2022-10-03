@@ -7,7 +7,7 @@ import countryPlaylistId from "../CountryPlaylist";
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 
-function MapChart({token}) {
+function MapChart({token, setPlaylistID}) {
 
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
@@ -17,6 +17,7 @@ function MapChart({token}) {
 
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
+      setPlaylistID(playlistId)
       fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
                 'Accept': 'application/json',

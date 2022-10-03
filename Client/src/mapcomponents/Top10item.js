@@ -5,8 +5,6 @@ const Top10Item = ({image, songName, songArtists, preview, id, token}) => {
 
     let audio = new Audio(preview)
 
-    console.log(id);
-
     const playTrack = () => {
         audio.play()
   }
