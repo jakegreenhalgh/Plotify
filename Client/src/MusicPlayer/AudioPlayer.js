@@ -74,7 +74,7 @@ const AudioPlayer = ({
     }, []);
   
     const handleNext = () => {
-      if (currentIndex < total.length - 1) {
+      if (currentIndex < 9) {
         setCurrentIndex(currentIndex + 1);
       } else setCurrentIndex(0);
     };
@@ -94,7 +94,7 @@ const AudioPlayer = ({
 
     return (
       <div>
-            <img src={currentTrack.album.images[2].url} alt='album artwork'/>
+            {/* <img src={currentTrack.album.images[2].url} alt='album artwork'/> */}
             <p>{currentTrack?.name}</p>
             <p>{artists.join(" | ")}</p>
             <div>

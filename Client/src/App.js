@@ -1,7 +1,6 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import MapContainer from './containers/MapContainer';
-import WebPlayback from './playercomponents/WebPlayback';
 import Login from './Login';
 
 
@@ -30,7 +29,6 @@ function App() {
           { (token === '') ? <Login/> : <div className='App-header'>
           <button onClick={logout}>Logout</button>
           <MapContainer token={token} />
-          {/* <WebPlayback token={token}/>*/}
           </div> }
       </div>
     );
