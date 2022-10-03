@@ -1,4 +1,4 @@
-import './App.css';
+import './Container.css';
 
 import MapChart from '../mapcomponents/MapChart';
 import Player from '../MusicPlayer';
@@ -13,7 +13,7 @@ function MapContainer ({token}){
 
     return (
         <>
-        <MapChart className="Map" 
+        <MapChart
         token={token} 
         setPlaylistID={setPlaylistID}
         setCurrentIndex={setCurrentIndex}

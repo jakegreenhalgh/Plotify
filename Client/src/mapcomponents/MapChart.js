@@ -1,3 +1,4 @@
+import './Map.css'
 import React from "react"
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps"
 import { useState, useEffect } from "react";
@@ -69,13 +70,15 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
         }
       </Geographies>
     </ComposableMap>
-    <div>{clickedCountry.name}</div>
+    <div className="SongList">
+      <div>{clickedCountry.name}</div>
     {clickedCountry ? 
+    
     <Top10 playlist={playlist} token={token} setCurrentIndex={setCurrentIndex}/>
     :
     null
     }
-    
+    </div>
     </>
   )
 }

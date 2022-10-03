@@ -2,6 +2,7 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import MapContainer from './containers/MapContainer';
 import Login from './Login';
+import { IoLogOutOutline } from 'react-icons/io5';
 
 
 function App() {
@@ -27,7 +28,7 @@ function App() {
     return (
       <div className='App'>
           { (token === '') ? <Login/> : <div className='App-header'>
-          <button onClick={logout}>Logout</button>
+          <IoLogOutOutline onClick={logout} value={{ size: "35px", color: "#C4D0E3" }} className="btn-body"/>
           <MapContainer token={token} />
           </div> }
       </div>
