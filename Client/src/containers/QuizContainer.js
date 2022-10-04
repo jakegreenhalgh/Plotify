@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import QuizMap from '../quizComponents/QuizMap';
 import QuizQuestions from '../quizComponents/QuizQuestions';
 import { addScore } from '../services/QuizService';
+import { getUser } from '../services/QuizService';
+import { addUser } from '../services/QuizService';
 import { getUsersScore } from '../services/QuizService';
 import { getQuizAnswer } from '../services/QuizService';
 
@@ -12,12 +14,14 @@ const QuizContainer = ({userId}) => {
 	const [questions, setQuestions] = useState([])
 	const [answers, setAnswers] = useState([])
 	const [answeredQuestions, setAnsweredQuestions] = useState({})
+	const [user, setUser] = useState([])
 
 
 
 	useEffect(()=>{
         getQuizAnswer().then(answer => setQuestions(answer.slice(0,9)))
         getQuizAnswer().then(answer => setAnswers(answer.slice(9,17)))
+		getUser().then(user => setUser(user))
     }, []);
 
 
@@ -56,6 +60,8 @@ const QuizContainer = ({userId}) => {
 			console.log(finalScore);
 			// console.log(getUsersScore());
 			// addScore(userId, finalScore)
+			// let newUser = {"User":userId, "scores":[]}
+			addUser({user :userId, playerScore:[]})
 		}
 	}
 	return (
