@@ -94,6 +94,7 @@ const QuizContainer = ({userId, userQuiz}) => {
 			tempUser["quizIds"].push(quizId)
 			updateScore(tempUser)
 			setUserCurrent(tempUser)
+			console.log(tempUser);
 			} else {
 				console.log("quiz already done");
 			}
@@ -109,7 +110,9 @@ const QuizContainer = ({userId, userQuiz}) => {
 					<QuizBarChart userCurrentScores={userCurrent}/>
 				</div>
 			) : (
+
 				<QuizMap currentQuestion={currentQuestion} answers={answers}/>
+
 			)}
 			<QuizQuestions answeredQuestions={answeredQuestions} checkQuestion={checkQuestion} questions={questions}/>
 		</div>

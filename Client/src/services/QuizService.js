@@ -2,6 +2,7 @@ const baseURL = 'http://localhost:8000/api/users/'
 const baseUrl = 'http://localhost:8000/api/'
 
 export const getQuizAnswer = () => {
+  console.log("fetching quiz");
     return fetch(baseUrl + "quiz")
         .then(res => res.json())
 }

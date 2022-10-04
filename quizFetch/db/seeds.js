@@ -1626,7 +1626,7 @@ const emptyCountryChart = {
   "ZW" : null
   }
 
-let token = "BQCLDEpCIoO4LGyqVam8YP19eEBdbMB9dTaEQywtgqHLE_GmJxzYgpGNQRU-3ekhE7G3jBAGS1dv41Q51ci71RcNlOugEKNjGkzOY4wQ2IX9-uth-krCYDxKlNDTqIrLdR1hsioI8vqv982Rn5AozrLKeZa7eGR6qLxPSWbS4JsBfxo"
+let token = "BQBnBCiMag8e_u-KWSwjSVZDM2b7U0ACIgWFwHycM29Edw2V5O484YCqR9hbrafJwy9pf8E_-TkzRmHZQ8nFAINAlEfpBgOID2DmNZFXrrBCn8X7QapF2Cf0Cuy17KDRHp3aSSPByeXdikbFcTcwwkUidtutsDRMWleuQIbSO0jtrXc"
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -1776,6 +1776,20 @@ for (var artist in sortableArtists) {
   randomAnswers.pop();
   console.log(randomAnswers);
   db.quiz.insertMany(randomAnswers)
+  db.users.insertOne(  {"user": 1152767803,
+  "quizIds": [
+    "633c219c33800bb404c3bb70",1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+  ],
+  "scores": {
+    "0": 1,
+    "1": 4,
+    "2": 5,
+    "3": 7,
+    "4": 7,
+    "5": 4,
+    "6": 3,
+    "7": 2,
+    "8": 0}})
 }
 addAllSongs(trialCountryId);
 
