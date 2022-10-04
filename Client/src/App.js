@@ -3,12 +3,14 @@ import { useEffect, useState } from 'react';
 import MapContainer from './containers/MapContainer';
 import Login from './Login';
 import QuizContainer from './containers/QuizContainer';
+import { getUser } from './services/QuizService';
 
 
 function App() {
 
     const [token, setToken] = useState('');
     const [userId, setUserId] = useState('');
+    const [userQuiz, setUserQuiz] = useState('');
   
     useEffect(() => {
   
@@ -23,9 +25,11 @@ function App() {
                     'Content-Type': 'application/json',
                     'Authorization': 'Bearer ' + json.access_token
                 }
+            
         });
         const userJson = await userResponse.json();
         setUserId(userJson.id);
+        getUser(userJson.id).then(user => setUserQuiz(user))
       
 
 
@@ -70,7 +74,7 @@ function App() {
       <div className='App'>
           { (token === '') ? <Login/> : <div className='App-header'>
           <button onClick={logout}>Logout</button>
-          <QuizContainer userId={userId}/>
+          <QuizContainer userId={userId} userQuiz={userQuiz}/>
           <MapContainer token={token} />
           </div> }
       </div>

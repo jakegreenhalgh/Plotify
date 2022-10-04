@@ -7,21 +7,21 @@ import { addUser } from '../services/QuizService';
 import { getUsersScore } from '../services/QuizService';
 import { getQuizAnswer } from '../services/QuizService';
 
-const QuizContainer = ({userId}) => {
+const QuizContainer = ({userId, userQuiz}) => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
 	const [questions, setQuestions] = useState([])
 	const [answers, setAnswers] = useState([])
 	const [answeredQuestions, setAnsweredQuestions] = useState({})
-	const [user, setUser] = useState([])
+	const [userCurrent, setUserCurrent] = useState([])
 
 
 
 	useEffect(()=>{
         getQuizAnswer().then(answer => setQuestions(answer.slice(0,9)))
         getQuizAnswer().then(answer => setAnswers(answer.slice(9,17)))
-		getUser().then(user => setUser(user))
+		setUserCurrent(userQuiz)
     }, []);
 
 
@@ -52,20 +52,34 @@ const QuizContainer = ({userId}) => {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowScore(true);
-			let finalScore = {
-				"userID" : userId,
-				"scores" : {score}
-			}
-			console.log("finalScore = ");
-			console.log(finalScore);
-			// console.log(getUsersScore());
-			// addScore(userId, finalScore)
-			// let newUser = {"User":userId, "scores":[]}
-			addUser({user :userId, playerScore:[]})
+			handleFinalScore(userCurrent, score)
 		}
 	}
 	const handleFinalScore = (user, score) => {
-		
+		console.log("HandleFinalScore");
+		console.log(user);
+		console.log(score);
+		if (user === null) {
+			let newUser = {
+				"user": userId,
+				"scores":{
+					"0":0,
+					"1":0,
+					"2":0,
+					"3":0,
+					"4":0,
+					"5":0,
+					"6":0,
+					"7":0,
+					"8":0,
+				}
+			}
+			console.log("if called");
+			console.log(newUser);
+			newUser["scores"][parseInt(score)] += 1
+			addUser(newUser)
+			setUserCurrent(newUser)
+		}
 	}
 	return (
 		

@@ -12,7 +12,7 @@ export const getAllSongs = () => {
 }
 
 export const addUser = (user) => {
-    console.log("addUser");
+    console.log("ADDUSER");
     console.log(user);
     return fetch(baseURL, {
       method: 'POST',
@@ -25,6 +25,8 @@ export const addUser = (user) => {
   }
 
 export const getUser = (user) =>  {
+    console.log("GETUSER");
+    console.log(user);
     return fetch(baseURL + user)
       .then(res => res.json());
   }
