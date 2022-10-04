@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import { QuizBarChart } from '../quizComponents/QuizBarChart';
 import QuizMap from '../quizComponents/QuizMap';
 import QuizQuestions from '../quizComponents/QuizQuestions';
 import { updateScore } from '../services/QuizService';
@@ -105,7 +106,7 @@ const QuizContainer = ({userId, userQuiz}) => {
 			{showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length - 1}
-					{/* <button onClick={handleReset}>Reset</button> */}
+					<QuizBarChart userCurrentScores={userCurrent.scores}/>
 				</div>
 			) : (
 				<QuizMap currentQuestion={currentQuestion} answers={answers}/>

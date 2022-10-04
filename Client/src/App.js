@@ -29,43 +29,16 @@ function App() {
         });
         const userJson = await userResponse.json();
         setUserId(userJson.id);
-        console.log("parse");
-        getUser(userJson.id).then(user => setUserQuiz(user))
-      
+        getUser(parseInt(userJson.id)).then(user => setUserQuiz(user))
 
-
-    //   fetch("https://api.spotify.com/v1/me", {
-    //     method: 'GET', headers: {
-    //         'Accept': 'application/json',
-    //         'Content-Type': 'application/json',
-    //         'Authorization': 'Bearer ' + token
-    //     }
-    // })
-    //     .then(res => res.json())
-    //     .then(user => setUserId(user.id))
-    
 }
     
-
-
-      getToken();
-  
+    getToken();
     }, []);
 
-//     useEffect(() => {
-
-
-//         fetch("https://api.spotify.com/v1/me", {
-//             method: 'GET', headers: {
-//                 'Accept': 'application/json',
-//                 'Content-Type': 'application/json',
-//                 'Authorization': 'Bearer ' + token
-//             }
-//         })
-//             .then(res => res.json())
-//             .then(user => setUserId(user.id))
-
-// }, [setToken]);
+    // useEffect(() =>{
+    //     getUser(parseInt(userId)).then(user => setUserQuiz(user))
+    // },[userId])
 
     const logout = () => {
         setToken("")
