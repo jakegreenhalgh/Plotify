@@ -31,7 +31,8 @@ const createRouter = function(collection) {
 
   router.get('/:id', (req, res) => {
     collection
-    .findOne({  user: Number(req.params.id) })
+    .findOne({  user: (req.params.id) })
+    // .findOne({  user: Number(req.params.id) })
     // .toArray()
     .then((docs) => res.json(docs))
     .catch((err) => {

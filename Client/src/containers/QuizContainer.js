@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import QuizMap from '../quizComponents/QuizMap';
 import QuizQuestions from '../quizComponents/QuizQuestions';
+import { updateScore } from '../services/QuizService';
 import { addScore } from '../services/QuizService';
 import { getUser } from '../services/QuizService';
 import { addUser } from '../services/QuizService';
@@ -59,9 +60,9 @@ const QuizContainer = ({userId, userQuiz}) => {
 		console.log("HandleFinalScore");
 		console.log(user);
 		console.log(score);
-		if (user === null) {
+		if (user === null || user == "") {
 			let newUser = {
-				"user": userId,
+				"user": parseInt(userId),
 				"scores":{
 					"0":0,
 					"1":0,
@@ -74,11 +75,17 @@ const QuizContainer = ({userId, userQuiz}) => {
 					"8":0,
 				}
 			}
-			console.log("if called");
+			// console.log("if called");
 			console.log(newUser);
 			newUser["scores"][parseInt(score)] += 1
 			addUser(newUser)
 			setUserCurrent(newUser)
+		} else {
+			let tempUser = {...userCurrent}
+			tempUser["scores"][parseInt(score)] += 1
+			updateScore(tempUser)
+			setUserCurrent(tempUser)
+
 		}
 	}
 	return (

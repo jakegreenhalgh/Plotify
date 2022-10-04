@@ -29,6 +29,7 @@ function App() {
         });
         const userJson = await userResponse.json();
         setUserId(userJson.id);
+        console.log("parse");
         getUser(userJson.id).then(user => setUserQuiz(user))
       
 
