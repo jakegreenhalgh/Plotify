@@ -106,7 +106,7 @@ const QuizContainer = ({userId, userQuiz}) => {
 			{showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length - 1}
-					<QuizBarChart userCurrentScores={userCurrent.scores}/>
+					<QuizBarChart userCurrentScores={userCurrent}/>
 				</div>
 			) : (
 				<QuizMap currentQuestion={currentQuestion} answers={answers}/>

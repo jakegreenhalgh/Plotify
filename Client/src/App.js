@@ -10,7 +10,7 @@ function App() {
 
     const [token, setToken] = useState('');
     const [userId, setUserId] = useState('');
-    const [userQuiz, setUserQuiz] = useState('');
+    const [userQuiz, setUserQuiz] = useState(null);
   
     useEffect(() => {
   
@@ -48,7 +48,10 @@ function App() {
       <div className='App'>
           { (token === '') ? <Login/> : <div className='App-header'>
           <button onClick={logout}>Logout</button>
-          <QuizContainer userId={userId} userQuiz={userQuiz}/>
+          {userQuiz ? <QuizContainer userId={userId} userQuiz={userQuiz}/> : <div>Loading</div>} 
+          {/* <QuizContainer userId={userId} userQuiz={userQuiz}/> */}
+          
+
           <MapContainer token={token} />
           </div> }
       </div>

@@ -14,6 +14,7 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
 
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
+      if (playlistId){
       setPlaylistID(playlistId)
       fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
@@ -24,7 +25,7 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
         })
             .then(res => res.json())
             .then(top10 => setPlaylist(top10.tracks.items.slice(0, 10)))
-    }, [clickedCountry])
+    }}, [clickedCountry])
 
 
 
