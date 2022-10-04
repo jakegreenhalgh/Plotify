@@ -1626,8 +1626,7 @@ const emptyCountryChart = {
   "ZW" : null
   }
 
-const token = "BQAaiCFUelKITpQe1W-itYWerQaprcFiNZi2aS04coexKi_HDO_7jheldMqLK0aHapJrXNp9CVQ6CfMfgNEDp21vtT3oZKqREloqCBO_SDv37xRC_q3OCj5CManXxrkh90q4MkRjIdNmvHw0Qgusyyi1qcmrnovgSeIKx1qn4I6ZzYA"
-
+let token = "BQCLDEpCIoO4LGyqVam8YP19eEBdbMB9dTaEQywtgqHLE_GmJxzYgpGNQRU-3ekhE7G3jBAGS1dv41Q51ci71RcNlOugEKNjGkzOY4wQ2IX9-uth-krCYDxKlNDTqIrLdR1hsioI8vqv982Rn5AozrLKeZa7eGR6qLxPSWbS4JsBfxo"
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -1777,8 +1776,6 @@ for (var artist in sortableArtists) {
   randomAnswers.pop();
   console.log(randomAnswers);
   db.quiz.insertMany(randomAnswers)
-  db.users.insertOne({user: 1152767803, scores:[]})
-  db.users.insertOne({user: 1111111111, scores:[]})
 }
 addAllSongs(trialCountryId);
 

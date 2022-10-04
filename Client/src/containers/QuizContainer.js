@@ -25,6 +25,10 @@ const QuizContainer = ({userId, userQuiz}) => {
 		setUserCurrent(userQuiz)
     }, []);
 
+	// useEffect(() => {
+
+	// }, [])
+
 
 	const handleReset = () => {
 		setCurrentQuestion(0)
@@ -63,6 +67,7 @@ const QuizContainer = ({userId, userQuiz}) => {
 		if (user === null || user == "") {
 			let newUser = {
 				"user": parseInt(userId),
+				"quizIds": [],
 				"scores":{
 					"0":0,
 					"1":0,
@@ -75,17 +80,22 @@ const QuizContainer = ({userId, userQuiz}) => {
 					"8":0,
 				}
 			}
-			// console.log("if called");
-			console.log(newUser);
+			// console.log(newUser);
 			newUser["scores"][parseInt(score)] += 1
 			addUser(newUser)
 			setUserCurrent(newUser)
 		} else {
+			let quizId = questions[0]._id
+			console.log("new quiz?");
+			if (!userCurrent.quizIds.includes(quizId)){
 			let tempUser = {...userCurrent}
 			tempUser["scores"][parseInt(score)] += 1
+			tempUser["quizIds"].push(quizId)
 			updateScore(tempUser)
 			setUserCurrent(tempUser)
-
+			} else {
+				console.log("quiz already done");
+			}
 		}
 	}
 	return (
