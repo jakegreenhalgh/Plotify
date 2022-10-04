@@ -64,6 +64,9 @@ const QuizContainer = ({userId}) => {
 			addUser({user :userId, playerScore:[]})
 		}
 	}
+	const handleFinalScore = (user, score) => {
+		
+	}
 	return (
 		
 		<div className='app'>

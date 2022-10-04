@@ -17,9 +17,22 @@ const createRouter = function(collection) {
     });
   });
   
+  router.get('/', (req, res) => {
+    collection
+    .find()
+    .toArray()
+    .then((docs) => res.json(docs))
+    .catch((err) => {
+      console.error(err);
+      res.status(500);
+      res.json({ status: 500, error: err });
+    });
+  });
+
   router.get('/:id', (req, res) => {
-    collection 
-      .findOne({},{ user: req.params.id })
+    collection
+    .findOne({  user: Number(req.params.id) })
+    // .toArray()
     .then((docs) => res.json(docs))
     .catch((err) => {
       console.error(err);
