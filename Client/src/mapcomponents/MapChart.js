@@ -13,9 +13,23 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
   const [clickedCountry, setClickedCountry] = useState("");
   const [playlist, setPlaylist] = useState([]);
 
+    // useEffect (() => {
+    //   const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
+    //   if (playlistId){
+    //   setPlaylistID(playlistId)
+    //   fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
+    //         method: 'GET', headers: {
+    //             'Accept': 'application/json',
+    //             'Content-Type': 'application/json',
+    //             'Authorization': 'Bearer ' + token
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(top10 => setPlaylist(top10.tracks.items.slice(0, 10)))
+    // }}, [clickedCountry])
+
     useEffect (() => {
       const playlistId = countryPlaylistId[clickedCountry["Alpha-2"]]
-      if (playlistId){
       setPlaylistID(playlistId)
       fetch(`https://api.spotify.com/v1/playlists/${playlistId}`, {
             method: 'GET', headers: {
@@ -26,7 +40,7 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
         })
             .then(res => res.json())
             .then(top10 => setPlaylist(top10.tracks.items.slice(0, 10)))
-    }}, [clickedCountry])
+    }, [clickedCountry])
 
     const handleClick = (geo) => {
         setClickedCountry(geo.properties)

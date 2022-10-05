@@ -9,7 +9,7 @@ import { addUser } from '../services/QuizService';
 import { getUsersScore } from '../services/QuizService';
 import { getQuizAnswer } from '../services/QuizService';
 
-const QuizContainer = ({userId, userQuiz}) => {
+const QuizContainer = ({userid, userquiz}) => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
@@ -23,7 +23,7 @@ const QuizContainer = ({userId, userQuiz}) => {
 	useEffect(()=>{
         getQuizAnswer().then(answer => setQuestions(answer.slice(0,9)))
         getQuizAnswer().then(answer => setAnswers(answer.slice(9,17)))
-		setUserCurrent(userQuiz)
+		setUserCurrent(userquiz)
     }, []);
 
 	const handleReset = () => {
@@ -66,7 +66,7 @@ const QuizContainer = ({userId, userQuiz}) => {
 		let quizId = questions[0]._id
 		if (user === null || user == "") {
 			let newUser = {
-				"user": parseInt(userId),
+				"user": parseInt(userid),
 				"quizIds": [],
 				"scores":{
 					"0":0,

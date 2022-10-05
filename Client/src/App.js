@@ -4,11 +4,15 @@ import MapContainer from './containers/MapContainer';
 import Login from './Login';
 import QuizContainer from './containers/QuizContainer';
 import { getUser } from './services/QuizService';
+import TopBar from './TopBar';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 
 function App() {
 
     const [token, setToken] = useState('');
+    const [userid, setUserId] = useState('');
+    const [userquiz, setUserQuiz] = useState([])
   
     useEffect(() => {
   
@@ -39,7 +43,7 @@ function App() {
       <div className='App'>
           { (token === '') ? <Login/> : <div className='App-header'>
           {/* {userId ? <QuizContainer userId={userId} userQuiz={userQuiz}/> : <div>Loading</div>}  */}
-          <TopBar token={token} setToken={setToken} userId={userId} userQuiz={userQuiz}/>
+          <TopBar token={token} setToken={setToken} userid={userid} userquiz={userquiz}/>
           <Router>
             <Routes>
           <Route path="/quiz" element={<QuizContainer/>} />
