@@ -41,7 +41,8 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
         // console.log(countryPlaylistId[clickedCountry["Alpha-2"]])
     }
   return (
-    <>
+    <div className='map-screen'>
+      <div>
     <ComposableMap>
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
@@ -70,16 +71,18 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
         }
       </Geographies>
     </ComposableMap>
+    </div>
     <div className="SongList">
-      <div>{clickedCountry.name}</div>
-    {clickedCountry ? 
+      <div className='country'>{clickedCountry.name}</div>
+    {countryPlaylistId[clickedCountry["Alpha-2"]] ? 
     
     <Top10 playlist={playlist} token={token} setCurrentIndex={setCurrentIndex}/>
     :
-    null
+    <div>
+      Pick a highlighted country for playlists</div>
     }
     </div>
-    </>
+    </div>
   )
 }
 

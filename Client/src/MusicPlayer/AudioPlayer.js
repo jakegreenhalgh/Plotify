@@ -1,3 +1,4 @@
+import './Components.css'
 import { useEffect, useRef, useState } from "react";
 import Controls from "./Controls";
 
@@ -93,21 +94,27 @@ const AudioPlayer = ({
     });
 
     return (
-      <div>
-            {/* <img src={currentTrack.album.images[2].url} alt='album artwork'/> */}
-            <p>{currentTrack?.name}</p>
-            <p>{artists.join(" | ")}</p>
-            <div>
-              <p>0:{addZero(Math.round(trackProgress))}</p>
-              <p>0:30</p>
-            </div>
+      <div className="controls">
+        <p>
+
+        </p>
             <Controls
               isPlaying={isPlaying}
               setIsPlaying={setIsPlaying}
               handleNext={handleNext}
               handlePrev={handlePrev}
               total={total}
+              trackProgress={trackProgress}
+              addZero={addZero}
             />
+            <div className='song-card'>
+              {/* <img src={currentTrack.album.images[2].url} alt='album artwork'/> */}
+              <p>{currentTrack?.name}</p>
+              <p>{artists.join(" | ")}</p>
+            </div>
+            
+            
+            
           </div>
     );
   }

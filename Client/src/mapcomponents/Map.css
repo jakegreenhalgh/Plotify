@@ -1,8 +1,52 @@
 .SongList {
-    background-image: repeating-radial-gradient(
-          circle at center left,
-          transparent 0,
-          #233656 100px
-        ),
-        repeating-linear-gradient(#1e2a3e55, #1e2a3e);
+    background-color: #D9DCD6;
+    border-radius: 5px;
     }
+
+.map-screen {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+
+.btn-body {
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  color: #F8D9C0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5px auto;
+  transition: all 0.5s ease;
+}
+
+.btn-body:hover {
+  color: white;
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.chart-track {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  padding: 5%;
+  margin-bottom: 5%;
+  margin-right: 5%;
+  font-size: medium;
+  background-color: #16425B
+}
+
+img {
+  height: 60px;
+  width: 60px;
+}
+
+.country {
+  padding-top: 5px;
+  color: #16425B;
+  font-size: larger;
+  font-weight: bold;
+  justify-content: center;
+}
