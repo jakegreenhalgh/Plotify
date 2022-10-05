@@ -1,7 +1,10 @@
 import React from 'react'
 import axios from 'axios';
+import { FaHeart } from 'react-icons/fa';
+import './Map.css'
 
-const Top10Item = ({image, songName, songArtists, preview, id, token, setCurrentIndex, index}) => {
+
+const Top10Item = ({image, songName, songArtists, id, token, setCurrentIndex, index}) => {
 
     const chooseTrack = () => {
       setCurrentIndex(index)
@@ -19,10 +22,10 @@ const Top10Item = ({image, songName, songArtists, preview, id, token, setCurrent
         }
 
     return(
-    <div onClick={chooseTrack}>
+    <div onClick={chooseTrack} className='chart-track'>
         <img src={image} alt='album artwork'/>
         {songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}{songArtists[2]?", "+songArtists[2].name:null}
-        <button onClick={addToLikes}>Add to likes</button>
+        <FaHeart onClick={addToLikes} value={{ size: "20px", color: "#C4D0E3" }} className="btn-body" />
     </div>
     )
 }

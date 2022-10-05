@@ -25,20 +25,14 @@ const Player = ({playlistID, token, currentTrack, setCurrentTrack, currentIndex,
     useEffect(() => {
       setCurrentTrack(tracks[currentIndex]?.track);
     }, [currentIndex, tracks]);
-  
-
-        const showPlaylist = () => {
-        console.log(playlistID);
-        }
 
     return (
         <div className="footer_container">
-            <AudioPlayer 
+            <AudioPlayer
             currentTrack={currentTrack}
             total={tracks}
             currentIndex={currentIndex}
             setCurrentIndex={setCurrentIndex}/>
-            <button onClick={showPlaylist}>Log the playlist</button>
         </div>
     )
 }

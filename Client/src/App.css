@@ -19,16 +19,12 @@
   text-align: center;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
 
 .btn-body {
   height: 80px;
   width: 80px;
   border-radius: 20px;
-  color: #F8D9C0;
+  color: #D9DCD6;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -41,4 +37,14 @@
   color: white;
   cursor: pointer;
   transform: scale(1.05);
+}
+
+.topbar {
+  color: #D9DCD6;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 4fr 2fr 1fr;
+  align-items: center;
+  background-color: #16425B;
+  border-radius: 5px;
 }
