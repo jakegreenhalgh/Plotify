@@ -1,8 +1,9 @@
 import './App.css';
 import { IoLogOutOutline } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function TopBar ({token, setToken}) {
+function TopBar ({token, setToken, userid, userquiz}) {
 
     const[user,setUser] = useState("")
 

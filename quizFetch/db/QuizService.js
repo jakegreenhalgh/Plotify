@@ -1,5 +1,5 @@
-const baseURL = 'http://localhost:9000/api/users/'
-const baseUrl = 'http://localhost:9000/api/'
+const baseURL = 'http://localhost:8000/api/users/'
+const baseUrl = 'http://localhost:8000/api/'
 
 export const getQuizAnswer = () => {
     return fetch(baseUrl + "quiz")
