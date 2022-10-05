@@ -28,7 +28,7 @@
 }
 
 .chart-track {
-  width: 100%;
+  width: 90%;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   padding: 5%;
@@ -37,6 +37,7 @@
   font-size: medium;
   background-color: #16425B;
   border-radius: 10px;
+  cursor: pointer;
   
 }
 

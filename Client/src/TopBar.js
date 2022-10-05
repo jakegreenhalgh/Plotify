@@ -19,7 +19,7 @@ function TopBar ({token, setToken}) {
             <p></p>
         <p>Welcome!</p>
         <p></p>
-        <IoLogOutOutline onClick={logout} value={{ size: "35px", color: "#D9DCD6" }} className="btn-body"/>
+        <IoLogOutOutline onClick={logout} value={{ size: "35px", color: "#D9DCD6" }} className="logout-btn"/>
         <p></p>
         </div>
     )
