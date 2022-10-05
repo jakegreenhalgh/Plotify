@@ -10,7 +10,6 @@ function MapContainer ({token}){
     const [currentTrack, setCurrentTrack] = useState({});
     const [currentIndex, setCurrentIndex] = useState(0);
 
-
     return (
         <>
         <MapChart

@@ -18,7 +18,7 @@ const QuizContainer = ({userid, userquiz}) => {
 	const [answeredQuestions, setAnsweredQuestions] = useState({})
 	const [userCurrent, setUserCurrent] = useState([])
 
-
+console.log(userid);
 
 	useEffect(()=>{
         getQuizAnswer().then(answer => setQuestions(answer.slice(0,9)))

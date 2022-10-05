@@ -46,8 +46,8 @@ function App() {
           <TopBar token={token} setToken={setToken} userid={userid} userquiz={userquiz}/>
           <Router>
             <Routes>
-          <Route path="/quiz" element={<QuizContainer/>} />
-          <Route path="/" element={<MapContainer/>}/>
+          <Route path="/quiz" element={<QuizContainer userid={userid} userquiz={userquiz} />} />
+          <Route path="/" element={<MapContainer token={token}/>}/>
         </Routes>
     </Router>
           {/* <MapContainer token={token} /> */}

@@ -43,6 +43,8 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
     }, [clickedCountry])
 
     const handleClick = (geo) => {
+      console.log(token
+      );
         setClickedCountry(geo.properties)
         ;
     }
