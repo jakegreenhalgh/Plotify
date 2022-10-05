@@ -8,7 +8,7 @@
           transparent 0,
           #233656 1000px
         ),
-        repeating-linear-gradient(#1e2a3e55, #1e2a3e);
+        repeating-linear-gradient(#3A7CA5, #2F6690);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,12 +19,39 @@
   text-align: center;
 }
 
+.btn-spotify {
+  width: 200px;
+    padding: 15px 0px;
+    text-align: center;
+    background-color: #fefefe;
+    border-radius: 50px;
+    color: #1f1f1f;
+    font-weight: 600;
+}
 
-.btn-body {
+.links{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style: none;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #D9DCD6;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.05);
+  color: #81C3D7;
+}
+
+.logout-btn {
   height: 80px;
   width: 80px;
   border-radius: 20px;
-  color: #D9DCD6;
+  color: white;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -33,9 +60,10 @@
   transition: all 0.5s ease;
 }
 
-.btn-body:hover {
+.logout-btn:hover {
   color: white;
   cursor: pointer;
+
   transform: scale(1.05);
 }
 
@@ -47,4 +75,21 @@
   align-items: center;
   background-color: #16425B;
   border-radius: 5px;
+  font-size: x-large;
+}
+
+.logo-name {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  align-items: center;
+}
+
+.our-logo {
+  height: 50px;
+  width: 50px;
+}
+
+.login-logo {
+  height: 100px;
+  width: 100px;
 }

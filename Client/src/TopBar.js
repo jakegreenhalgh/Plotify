@@ -1,7 +1,7 @@
 import './App.css';
 import { IoLogOutOutline } from 'react-icons/io5';
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import logo from './images/logothing.png';
 
 function TopBar ({token, setToken, userid, userquiz}) {
 
@@ -11,23 +11,21 @@ function TopBar ({token, setToken, userid, userquiz}) {
         setToken("")
     }
 
-    const fetchUserDetails = () => {
-        console.log(user);
-    }
 
     return (
         <div className='topbar'>
             <p></p>
-        <p>Welcome!</p>
-        <ul>
-            <li><a href='./quiz' 
-            // userid={userid} userquiz={userquiz}
+        <div className='logo-name'>
+            <img src={logo} alt='logo' className='our-logo'/> 
+            <p>Plotify</p>
+        </div>
+        <ul className='links'>
+            <li><a href='./quiz' className='nav-link'
             >Quiz</a></li>
-            <li><a href='./' 
-            // token={token}
+            <li><a href='./' className='nav-link' 
             >Home</a></li>
         </ul>
-        <IoLogOutOutline onClick={logout} value={{ size: "35px", color: "#D9DCD6" }} className="btn-body"/>
+        <IoLogOutOutline onClick={logout} className="btn-body"/>
         <p></p>
         </div>
     )
