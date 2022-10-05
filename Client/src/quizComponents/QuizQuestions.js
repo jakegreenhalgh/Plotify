@@ -9,7 +9,6 @@ const QuizQuestions = ({questions, checkQuestion, answeredQuestions}) => {
     })
   return (
     <>
-    <div>Questions</div>
     {questionsList}
     </>
 

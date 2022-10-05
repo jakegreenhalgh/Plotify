@@ -106,15 +106,20 @@ console.log(userid);
 				<div className='score-section'>
 					You scored {score} out of {questions.length - 1}
 					<QuizBarChart userCurrentScores={userCurrent}/>
+					<QuizQuestions answeredQuestions={answeredQuestions} checkQuestion={checkQuestion} questions={questions}/>
 				</div>
+				
 			) : (
-
+				<div className='map-screen'>
+				<div>
 				<QuizMap currentQuestion={currentQuestion} answers={answers}/>
-
+				</div>
+				<div className="SongList">
+					<QuizQuestions answeredQuestions={answeredQuestions} checkQuestion={checkQuestion} questions={questions}/>
+				</div>
+			</div>
 			)}
-			<QuizQuestions answeredQuestions={answeredQuestions} checkQuestion={checkQuestion} questions={questions}/>
 		</div>
-		
 	);
 }
 
