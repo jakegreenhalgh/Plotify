@@ -35,7 +35,9 @@
   margin-bottom: 5%;
   margin-right: 5%;
   font-size: medium;
-  background-color: #16425B
+  background-color: #16425B;
+  border-radius: 10px;
+  
 }
 
 img {

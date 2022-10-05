@@ -54,15 +54,15 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
             style={{
                 default: {
                   // fill: "#ffffff",
-                  fill: countryPlaylistId[geo.properties["Alpha-2"]]? "#ffffff" : "#808080",
+                  fill: countryPlaylistId[geo.properties["Alpha-2"]]? "#D9DCD6" : "#808080",
                   outline: 'none'
                 },
                 hover: {
-                  fill: "#1ed760",
+                  fill: "#81C3D7",
                   outline: 'none'
                 },
                 pressed: {
-                  fill: "#1db954",
+                  fill: "#16425B",
                   outline: 'none'
                 },
               }}
