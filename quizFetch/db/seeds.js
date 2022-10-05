@@ -1626,7 +1626,7 @@ const emptyCountryChart = {
   "ZW" : null
   }
 
-let token = "BQBnBCiMag8e_u-KWSwjSVZDM2b7U0ACIgWFwHycM29Edw2V5O484YCqR9hbrafJwy9pf8E_-TkzRmHZQ8nFAINAlEfpBgOID2DmNZFXrrBCn8X7QapF2Cf0Cuy17KDRHp3aSSPByeXdikbFcTcwwkUidtutsDRMWleuQIbSO0jtrXc"
+let token = "BQAOtbVE8HFF6uSYkoMDjbp8qd9cvanmdgGpohyaZv6orIWPn2qTNBu77sFWKllV6bv7uX1Ar1IwjIPimngDJyPB8yP0wWLgEhlNhmgyih2lT5Et5ot-R_S9UH-blyH-Cwz0K_4ZcEQLdwludxQ413KP5b216cs1Zhow8_GjVQUMb1k"
 
 function shuffleArray(array) {
   for (var i = array.length - 1; i > 0; i--) {

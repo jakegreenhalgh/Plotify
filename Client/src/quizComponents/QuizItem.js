@@ -23,9 +23,9 @@ const getButtonStatus = (answeredQuestions, songID) => {
                 <Wrapper onMouseEnter={playTrack} onMouseLeave={pauseTrack} onClick={handleGuess}>
         <SongImage src={songImage}/>
         <Details>
-            <UserName>
+            {/* <UserName>
                 {songName}
-            </UserName>
+            </UserName> */}
             <Info>
             {songName} by {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}
             </Info>
@@ -38,9 +38,9 @@ const getButtonStatus = (answeredQuestions, songID) => {
             <Wrapper onMouseEnter={playTrack} onMouseLeave={pauseTrack} onClick={handleGuess} disabled={true}>
         <SongImage src={songImage}/>
         <Details>
-            <Comment>
+            {/* <Comment>
                 {songName}
-            </Comment>
+            </Comment> */}
             <Info>
             {songName} by {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}
             </Info>
@@ -53,9 +53,9 @@ const getButtonStatus = (answeredQuestions, songID) => {
             <Wrapper onMouseEnter={playTrack} onMouseLeave={pauseTrack} onClick={handleGuess} disabled={true}>
         <SongImage src={songImage}/>
         <Details>
-            <UserName>
+            {/* <UserName>
                 {songName}
-            </UserName>
+            </UserName> */}
             <Info>
             {songName} by {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}
             </Info>
@@ -79,8 +79,8 @@ export default QuizItem
 
 const QuestionUnanswered = styled.button`
     margin-right: 4px;
-    color: gray;
-    background-color: gray;
+    color: #16425B;
+    background-color: #16425B;
     
 `
 
@@ -112,8 +112,8 @@ const QuestionIncorrect = styled.button`
 const Wrapper = styled.li`
     display: flex;
     margin: 10px auto;
-    width: 500px;
-    /* background-color: #efebebeb; */
+    height: 50px;
+    width: 300px;
     padding: 10px;
     border-radius: 5px;
 
@@ -132,7 +132,8 @@ const Comment = styled.blockquote`
 `;
 
 const Info = styled.span`
-    color: #5252f9; 
+    font-size: 10rem;
+    color: white; 
     a {
         text-decoration: bold;
 
@@ -152,7 +153,7 @@ const Details = styled.div`
 `;
 
 const UserName = styled.div`
-    color: #5252f9; 
+    color: white; 
     a {
         text-decoration: none;
 
