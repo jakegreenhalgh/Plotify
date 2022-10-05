@@ -5,7 +5,6 @@ import colourGradient from './colourGradient';
 
 
 const QuizMap = ({currentQuestion, answers}) => {
-    console.log(answers);
 
     const geoUrl = "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries.json"
 

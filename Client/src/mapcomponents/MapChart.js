@@ -27,14 +27,9 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
             .then(top10 => setPlaylist(top10.tracks.items.slice(0, 10)))
     }}, [clickedCountry])
 
-
-
     const handleClick = (geo) => {
         setClickedCountry(geo.properties)
         ;
-        // console.log(clickedCountry);
-        // console.log(clickedCountry["Alpha-2"]);
-        // console.log(countryPlaylistId[clickedCountry["Alpha-2"]])
     }
   return (
     <>
@@ -48,7 +43,6 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
             onClick={() => handleClick(geo)}
             style={{
                 default: {
-                  // fill: "#ffffff",
                   fill: countryPlaylistId[geo.properties["Alpha-2"]]? "#ffffff" : "#808080",
                   outline: 'none'
                 },

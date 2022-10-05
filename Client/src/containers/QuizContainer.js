@@ -26,11 +26,6 @@ const QuizContainer = ({userId, userQuiz}) => {
 		setUserCurrent(userQuiz)
     }, []);
 
-	// useEffect(() => {
-
-	// }, [])
-
-
 	const handleReset = () => {
 		setCurrentQuestion(0)
 		setShowScore(false)
@@ -39,9 +34,11 @@ const QuizContainer = ({userId, userQuiz}) => {
 	}
 
 	const checkQuestion = async (songID) => {
+		let finalScore = 0
 		if (songID == answers[currentQuestion].id) {
 			let updateScore = score
 			updateScore += 1
+			finalScore = updateScore
 			setScore(updateScore)
 
 			let newAnswers = {...answeredQuestions}
@@ -51,6 +48,7 @@ const QuizContainer = ({userId, userQuiz}) => {
 		else {
 			let newAnswers = {...answeredQuestions}
 			newAnswers[answers[currentQuestion].id] = false
+			finalScore = score
 			setAnsweredQuestions(newAnswers)
 		}
 		const nextQuestion = currentQuestion + 1;
@@ -58,13 +56,14 @@ const QuizContainer = ({userId, userQuiz}) => {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowScore(true);
-			handleFinalScore(userCurrent, score)
+			handleFinalScore(userCurrent, finalScore)
 		}
 	}
 	const handleFinalScore = (user, score) => {
 		console.log("HandleFinalScore");
 		console.log(user);
 		console.log(score);
+		let quizId = questions[0]._id
 		if (user === null || user == "") {
 			let newUser = {
 				"user": parseInt(userId),
@@ -81,12 +80,11 @@ const QuizContainer = ({userId, userQuiz}) => {
 					"8":0,
 				}
 			}
-			// console.log(newUser);
+			newUser["quizIds"].push(quizId)
 			newUser["scores"][parseInt(score)] += 1
 			addUser(newUser)
 			setUserCurrent(newUser)
 		} else {
-			let quizId = questions[0]._id
 			console.log("new quiz?");
 			if (!userCurrent.quizIds.includes(quizId)){
 			let tempUser = {...userCurrent}

@@ -48,7 +48,7 @@ function App() {
       <div className='App'>
           { (token === '') ? <Login/> : <div className='App-header'>
           <button onClick={logout}>Logout</button>
-          {userQuiz ? <QuizContainer userId={userId} userQuiz={userQuiz}/> : <div>Loading</div>} 
+          {userId ? <QuizContainer userId={userId} userQuiz={userQuiz}/> : <div>Loading</div>} 
           {/* <QuizContainer userId={userId} userQuiz={userQuiz}/> */}
           
 
