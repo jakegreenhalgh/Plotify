@@ -9,8 +9,6 @@ import { getUser } from './services/QuizService';
 function App() {
 
     const [token, setToken] = useState('');
-    const [userId, setUserId] = useState('');
-    const [userQuiz, setUserQuiz] = useState(null);
   
     useEffect(() => {
   
@@ -36,23 +34,19 @@ function App() {
     getToken();
     }, []);
 
-    // useEffect(() =>{
-    //     getUser(parseInt(userId)).then(user => setUserQuiz(user))
-    // },[userId])
-
-    const logout = () => {
-        setToken("")
-    }
   
     return (
       <div className='App'>
           { (token === '') ? <Login/> : <div className='App-header'>
-          <button onClick={logout}>Logout</button>
-          {userId ? <QuizContainer userId={userId} userQuiz={userQuiz}/> : <div>Loading</div>} 
-          {/* <QuizContainer userId={userId} userQuiz={userQuiz}/> */}
-          
-
-          <MapContainer token={token} />
+          {/* {userId ? <QuizContainer userId={userId} userQuiz={userQuiz}/> : <div>Loading</div>}  */}
+          <TopBar token={token} setToken={setToken} userId={userId} userQuiz={userQuiz}/>
+          <Router>
+            <Routes>
+          <Route path="/quiz" element={<QuizContainer/>} />
+          <Route path="/" element={<MapContainer/>}/>
+        </Routes>
+    </Router>
+          {/* <MapContainer token={token} /> */}
           </div> }
       </div>
     );

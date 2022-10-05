@@ -10,7 +10,6 @@ const Top10 = ({playlist, token, setCurrentIndex}) => {
             image={songObj.track.album.images[2].url} 
             songName={songObj.track.name} 
             songArtists={songObj.track.artists}
-            preview={songObj.track.preview_url}
             id={songObj.track.id}
             token={token}
             setCurrentIndex={setCurrentIndex}

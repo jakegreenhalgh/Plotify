@@ -1,3 +1,4 @@
+import './Map.css'
 import React from "react"
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps"
 import { useState, useEffect } from "react";
@@ -32,7 +33,8 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
         ;
     }
   return (
-    <>
+    <div className='map-screen'>
+      <div>
     <ComposableMap>
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
@@ -43,15 +45,15 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
             onClick={() => handleClick(geo)}
             style={{
                 default: {
-                  fill: countryPlaylistId[geo.properties["Alpha-2"]]? "#ffffff" : "#808080",
+                  fill: countryPlaylistId[geo.properties["Alpha-2"]]? "#D9DCD6" : "#808080",
                   outline: 'none'
                 },
                 hover: {
-                  fill: "#1ed760",
+                  fill: "#81C3D7",
                   outline: 'none'
                 },
                 pressed: {
-                  fill: "#1db954",
+                  fill: "#16425B",
                   outline: 'none'
                 },
               }}
@@ -60,14 +62,18 @@ function MapChart({token, setPlaylistID, setCurrentIndex}) {
         }
       </Geographies>
     </ComposableMap>
-    <div>{clickedCountry.name}</div>
-    {clickedCountry ? 
+    </div>
+    <div className="SongList">
+      <div className='country'>{clickedCountry.name}</div>
+    {countryPlaylistId[clickedCountry["Alpha-2"]] ? 
+    
     <Top10 playlist={playlist} token={token} setCurrentIndex={setCurrentIndex}/>
     :
-    null
+    <div>
+      Pick a highlighted country for playlists</div>
     }
-    
-    </>
+    </div>
+    </div>
   )
 }
 
