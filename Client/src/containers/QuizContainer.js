@@ -101,7 +101,7 @@ console.log(userid);
 	return (
 		
 		<div className='app'>
-			<button onClick={handleReset}>Reset</button>
+			{/* <button onClick={handleReset}>Reset</button> */}
 			{showScore ? (
 				<div className='score-section'>
 					You scored {score} out of {questions.length - 1}

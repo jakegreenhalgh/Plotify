@@ -1732,43 +1732,27 @@ for (var artist in sortableArtists) {
   var quizAnswer = sortedSongs[Math.floor(Math.random()*60)];
   console.log(quizAnswer);
 
-
-  
-  // const quizSong = await quizAnswerFetch(quizAnswer[0])
-  // console.log(quizSong);
-  // db.quiz.insertOne(quizSong)
-
   let wrongAnswers = []
   let randomAnswers = []
-  // let countriesSongChartsIn = emptyCountryChart
   while (wrongAnswers.length < 9){
     var randomSong = sortedSongs[Math.floor(Math.random()*60)]
     let wrongAnswer = randomSong[0]
     if (!wrongAnswers.includes(wrongAnswer)) {
       let countriesSongChartsIn = {...emptyCountryChart}
-      // let countriesSongChartsInInitialised = []
-      // let countriesSongChartsIn = countriesSongChartsInInitialised.concat(emptyCountryChart)
       for (let index = 0; index < everySong.length; index++) {
-        // console.log(index);
         const element = everySong[index];
-        // console.log(element.song_id);
         if (element.song_id === wrongAnswer) {
           countriesSongChartsIn[element.country_id] = element.rank
-          // console.log(element.country_id);
-          // console.log(element.song_id);
+
         }
       }
-      // console.log("countriesSongChartsIn");
-      // console.log(countriesSongChartsIn);
-      // wrongAnswer.push(countriesSongChartsIn)
+ 
       wrongAnswers.push(wrongAnswer)
       let quizSong = await quizAnswerFetch(wrongAnswer)
-      // console.log(quizSong);
-      let songObject = quizSong[0]
+›      let songObject = quizSong[0]
       songObject["charts"] = countriesSongChartsIn
       randomAnswers.push(songObject)
       db.quiz.insertOne(songObject)
-      // countriesSongChartsIn = emptyCountryChart
     }
   }
   console.log(wrongAnswers);

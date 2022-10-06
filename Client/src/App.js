@@ -30,8 +30,10 @@ function App() {
             
         });
         const userJson = await userResponse.json();
-        setUserId(userJson.id);
-        getUser(parseInt(userJson.id)).then(user => setUserQuiz(user))
+        setUserId(1152767803);
+        getUser(parseInt(1152767803)).then(user => setUserQuiz(user))
+        // setUserId(userJson.id);
+        // getUser(parseInt(userJson.id)).then(user => setUserQuiz(user))
 
 }
     

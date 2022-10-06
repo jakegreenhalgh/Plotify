@@ -10,6 +10,8 @@ const QuizMap = ({currentQuestion, answers}) => {
 
   return (
     <>
+    <h5>Guess the song based on its chart map ranking.</h5>
+		<h7>(The colour gradient represents it's standing in the chart)</h7>
     <ComposableMap>
       <Geographies geography={geoUrl}>
         {({ geographies }) =>
@@ -36,8 +38,8 @@ const QuizMap = ({currentQuestion, answers}) => {
         }
       </Geographies>
     </ComposableMap>
-    <div>Guess the song based on its chart map ranking.</div>
-		<div>(The colour gradient represents it's standing in the chart)</div>
+    {/* <div>Guess the song based on its chart map ranking.</div>
+		<div>(The colour gradient represents it's standing in the chart)</div> */}
     
     </>
   )
