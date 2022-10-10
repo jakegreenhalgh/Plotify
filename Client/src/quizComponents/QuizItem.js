@@ -6,8 +6,10 @@ const QuizItem = ({songName, songID, songArtists, checkQuestion, answeredQuestio
 let audio = new Audio(preview)
 
 const handleGuess = () => {
+    if (!answeredQuestions.hasOwnProperty(songID)) 
     checkQuestion(songID)
     audio.pause()
+    
 }
 const playTrack = () => {
     audio.currentTime = 0
@@ -34,7 +36,7 @@ const getButtonStatus = (answeredQuestions, songID) => {
         </QuestionUnanswered>
         // return <QuestionUnanswered onMouseEnter={playTrack} onMouseLeave={pauseTrack} onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionUnanswered>
     } else if (answeredQuestions[songID]) {
-        return <QuestionCorrect>
+        return <QuestionCorrect disabled={answeredQuestions.hasOwnProperty(songID)}>
             <Wrapper onMouseEnter={playTrack} onMouseLeave={pauseTrack} onClick={handleGuess} disabled={true}>
         <SongImage src={songImage}/>
         <Details>
@@ -49,7 +51,7 @@ const getButtonStatus = (answeredQuestions, songID) => {
         </QuestionCorrect>
         // return <QuestionCorrect onMouseEnter={playTrack} onMouseLeave={pauseTrack} disabled={answeredQuestions.hasOwnProperty(songID)}  onClick={handleGuess}>{songName} | {songArtists[0].name}{songArtists[1]?", "+songArtists[1].name:null}</QuestionCorrect>
     } else {
-        return <QuestionIncorrect>
+        return <QuestionIncorrect disabled={answeredQuestions.hasOwnProperty(songID)}>
             <Wrapper onMouseEnter={playTrack} onMouseLeave={pauseTrack} onClick={handleGuess} disabled={true}>
         <SongImage src={songImage}/>
         <Details>

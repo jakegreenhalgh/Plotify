@@ -52,12 +52,16 @@ console.log(userid);
 			setAnsweredQuestions(newAnswers)
 		}
 		const nextQuestion = currentQuestion + 1;
+		if (nextQuestion < questions.length -2) {
+			setUserCurrent(userquiz)
+		}
 		if (nextQuestion < questions.length - 1) {
 			setCurrentQuestion(nextQuestion);
 		} else {
 			setShowScore(true);
 			handleFinalScore(userCurrent, finalScore)
 		}
+		
 	}
 	const handleFinalScore = (user, score) => {
 		console.log("HandleFinalScore");
@@ -65,6 +69,7 @@ console.log(userid);
 		console.log(score);
 		let quizId = questions[0]._id
 		if (user === null || user == "") {
+			console.log("New user");
 			let newUser = {
 				"user": parseInt(userid),
 				"quizIds": [],
