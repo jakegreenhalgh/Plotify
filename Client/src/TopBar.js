@@ -20,10 +20,10 @@ function TopBar ({token, setToken, userid, userquiz}) {
             <p>Plotify</p>
         </div>
         <ul className='links'>
-            <li><a href='./quiz' className='nav-link'
-            >Quiz</a></li>
             <li><a href='./' className='nav-link' 
             >Home</a></li>
+            <li><a href='./quiz' className='nav-link'
+            >Quiz</a></li> 
         </ul>
         <IoLogOutOutline onClick={logout} className="btn-body"/>
         <p></p>
