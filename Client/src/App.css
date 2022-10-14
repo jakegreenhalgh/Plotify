@@ -19,6 +19,10 @@
   text-align: center;
 }
 
+.btn-body {
+  color: #81C3D7;
+}
+
 .btn-spotify {
   width: 200px;
     padding: 15px 0px;

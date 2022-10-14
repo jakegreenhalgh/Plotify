@@ -9,13 +9,16 @@
 }
 
 .controls {
+    height: 75px;
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 10fr 10fr 1fr;
-    font-size: 20pt;
+    font-size: 15pt;
     color: #D9DCD6;
     background-color: #16425B;
     border-radius: 5px;
+    position: fixed;
+    bottom: 0;
    
 }
 
